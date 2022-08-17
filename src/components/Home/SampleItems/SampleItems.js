@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const SampleItems = () => {
 
@@ -14,6 +15,7 @@ const SampleItems = () => {
     return (
         <div className='container'>
 
+            <h1 className='py-5 text-center'>Products</h1>
             <div className='row row-cols-1 row-cols-md-3 g-4'>
                 {
                     items.map(item => <div className='col'>
@@ -25,7 +27,7 @@ const SampleItems = () => {
                                     <h6>Price</h6>
                                     <h6>quantity</h6>
                                     <h6>Vendor:</h6>
-                                    <button className='btn btn-primary'>Update</button>
+                                   <Link to='/updateitem'> <button className='btn btn-primary'>Update</button></Link>
                                 </div>
 
                             </div>
@@ -33,6 +35,9 @@ const SampleItems = () => {
                     </div>)
                 }
 
+            </div>
+            <div className='text-center py-5'>
+            <button className='btn btn-danger'>Show More</button>
             </div>
         </div>
     );
