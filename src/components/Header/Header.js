@@ -28,6 +28,15 @@ const Header = () => {
                                         <NavLink to='/home'><h6 className='px-4'>Home</h6></NavLink>
                                     </li>
                                     <li className="nav-item">
+                                        <NavLink to='/blogs'><h6 className='px-4'>Blogs</h6></NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink to='/about'><h6 className='px-4'>About</h6></NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink to='/contact'><h6 className='px-4'>Contacts</h6></NavLink>
+                                    </li>
+                                    <li className="nav-item">
                                         <NavLink to='/manageinventory'><h6 className='px-4'>Manage Inventory</h6></NavLink>
                                     </li>
                                     <li className="nav-item">
@@ -35,6 +44,9 @@ const Header = () => {
                                     </li>
                                     <li className="nav-item">
                                         <NavLink to='/myitems'><h6 className='px-4'>My Items</h6></NavLink>
+                                    </li>
+                                    <li className="nav-item">
+                                        <NavLink to='/stockoutitems'><h6 className='px-4'>Stock Out Items</h6></NavLink>
                                     </li>
                                     <li className="nav-item">
                                         <NavLink to='/login'><h6 className='px-4'>Log in</h6></NavLink>
