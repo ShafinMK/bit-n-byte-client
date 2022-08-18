@@ -1,9 +1,14 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
 import { Link } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 
 const LogIn = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const {user, googleSignin} = useFirebase();
+    const handleGoogleSignin = ()=>{
+        googleSignin();
+    }
     const onSubmit = data => console.log(data);
     return (
         <div>
@@ -34,7 +39,7 @@ const LogIn = () => {
                             </div>
                         </form>
                         <div className='py-5 text-center'>
-                            <button className='btn btn-light px-5 py-2'><i class="fa-brands fa-google pe-3"></i>Sign in with Google</button>
+                            <button onClick={handleGoogleSignin} className='btn btn-light px-5 py-2'><i class="fa-brands fa-google pe-3"></i>Sign in with Google</button>
                             <Link to='/signup'><h6 className='py-5'>New User? Signup Now!</h6></Link>
                         </div>
                     </div>
