@@ -1,14 +1,56 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import useFirebase from '../../hooks/useFirebase';
 
 const SignUp = () => {
     const [showpass, setShowpass] = useState(false);
     const showPassword = ()=>{
         showpass?setShowpass(false):setShowpass(true);
+    };
+    const navigate = useNavigate();
+    //sign in with google 
+    const {user, googleSignin, setUser, setError, setIsloading, createUser, updateUser} = useFirebase();
+    let  location = useLocation();
+    let navigation = useNavigate();
+    let from = location.state?.from?.pathname || "/";
+    const handleGoogleSignin = ()=>{
+        googleSignin()
+        .then((result) => {
+
+            const user = result.user;
+            setUser(user);
+            console.log(user);
+            navigation( from, {replace:true});
+        }).catch((error) => {
+
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setError(errorMessage);
+
+
+        })
+        .finally(()=>{
+            setIsloading(false);
+        });
     }
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
+
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data);
+        createUser(data.email, data.password)
+        .then(result =>{
+            setUser(result.user);
+            updateUser(data.name);
+            console.log(user);
+            reset();
+            navigate('/');
+
+        })
+        .catch(error =>{
+            setError(error.message);
+        })
+    };
     return (
         <div>
             <div className="container">
@@ -45,7 +87,7 @@ const SignUp = () => {
                             </div>
                         </form>
                         <div className='py-5 text-center'>
-                            <button className='btn btn-light px-5 py-2'><i class="fa-brands fa-google pe-3"></i>Sign in with Google</button>
+                            <button onClick={handleGoogleSignin} className='btn btn-light px-5 py-2'><i class="fa-brands fa-google pe-3"></i>Sign in with Google</button>
                             <Link to='/login'><h6 className='py-5'>Already signedup? Login now!</h6></Link>
                         </div>
                     </div>

@@ -10,6 +10,7 @@ import LogIn from "./components/LogIn/LogIn";
 import ManageInventory from "./components/ManageInventory/ManageInventory";
 import MyItems from "./components/MyItems/MyItems";
 import NotFound from "./components/NotFound/NotFound";
+import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SignUp from "./components/SignUp/SignUp";
 import StockOutItems from "./components/StockOutItems/StockOutItems";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
@@ -23,14 +24,14 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />}></Route>
           <Route path="/home" element={<Home />}></Route>
-          <Route path="/manageinventory" element={<ManageInventory />}></Route>
-          <Route path="/additem" element={<AddItem/>}></Route>
-          <Route path="/myitems" element={<MyItems/>}></Route>
-          <Route path="/updateitem" element={<UpdateItem />}></Route>
+          <Route path="/manageinventory" element={<PrivateRoute><ManageInventory /></PrivateRoute>}></Route>
+          <Route path="/additem" element={<PrivateRoute><AddItem/></PrivateRoute>}></Route>
+          <Route path="/myitems" element={<PrivateRoute><MyItems/></PrivateRoute>}></Route>
+          <Route path="/updateitem" element={<PrivateRoute><UpdateItem /></PrivateRoute>}></Route>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/blogs" element={<BLogs />}></Route>
-          <Route path="/stockoutitems" element={<StockOutItems />}></Route>
+          <Route path="/stockoutitems" element={<PrivateRoute><StockOutItems /></PrivateRoute>}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/*" element={<NotFound />}></Route>

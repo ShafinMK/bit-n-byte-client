@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
+import useFirebase from '../../hooks/useFirebase';
 
 const AddItem = () => {
     const [itemImage, setitemImage] = useState('https://jubilantconsumer.com/wp-content/themes/jubilant/assets/img/product.png');
+    const {user} = useFirebase();
 
     const handleIncrease = () => {
         let stockAmount = document.getElementById('stockAmount');
@@ -33,12 +35,12 @@ const AddItem = () => {
                         {/* vendor email  */}
                         <div class="mb-3">
                             <label class="form-label text-primary">Vendor Email address</label>
-                            <span className='form-control'>shafin@gmailcom</span>
+                            <span className='form-control'>{user.email}</span>
                         </div>
                         {/* vendor name  */}
                         <div class="mb-3">
                             <label class="form-label text-primary">Vendor Name</label>
-                            <span className='form-control'>shafin</span>
+                            <span className='form-control'>{user.displayName}</span>
                         </div>
                         {/* item name  */}
                         <div class="mb-3">

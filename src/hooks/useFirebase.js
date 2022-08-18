@@ -1,4 +1,4 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuth from "../firebase/firebase.initializeAuth";
 
@@ -11,34 +11,41 @@ const useFirebase = () => {
     const googleProvider = new GoogleAuthProvider();
     const auth = getAuth();
 
-
+    //google sign in 
     const googleSignin = () => {
-        signInWithPopup(auth, googleProvider)
-            .then((result) => {
-
-                const credential = GoogleAuthProvider.credentialFromResult(result);
-
-                // The signed-in user info.
-                const user = result.user;
-                setUser(user);
-                console.log(user);
-            }).catch((error) => {
-
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                setError(errorMessage);
-
-
-            });
+       return signInWithPopup(auth, googleProvider);
+            
+    }
+    //sign in existing user
+    const userSignin = (email, password)=>{
+        return signInWithEmailAndPassword(auth, email, password);
+    }
+    //create new user with email and pass
+    const createUser = (email, password)=>{
+        return createUserWithEmailAndPassword(auth, email, password);
+    }
+    //update user name 
+    const updateUser = (name) =>{
+        updateProfile(auth.currentUser, {
+            displayName: name
+          }).then(() => {
+            // Profile updated!
+            // ...
+          }).catch((error) => {
+            // An error occurred
+            // ...
+          });
     }
     // on auth state change 
     useEffect( ()=>{
         onAuthStateChanged(auth, (user) => {
             if (user) {
               setUser(user);
+              setIsloading(false);
               
             } else {
-              setUser({})
+              setUser({});
+              setIsloading(false);
             }
           });
     }, []);
@@ -52,7 +59,7 @@ const useFirebase = () => {
             // An error happened.
         });
     }
-    return { user, error, googleSignin, logOut };
+    return { user, error, setUser, setError, isloading, setIsloading, googleSignin, logOut, createUser, updateUser, userSignin };
 
 }
 

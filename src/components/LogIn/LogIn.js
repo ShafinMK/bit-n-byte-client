@@ -1,15 +1,48 @@
 import React from 'react';
 import { useForm } from "react-hook-form";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
 
 const LogIn = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const {user, googleSignin} = useFirebase();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const {user, googleSignin, setUser, setError, setIsloading, userSignin} = useFirebase();
+    let  location = useLocation();
+    let navigation = useNavigate();
+    let from = location.state?.from?.pathname || "/";
+
     const handleGoogleSignin = ()=>{
-        googleSignin();
+        googleSignin()
+        .then((result) => {
+
+            const user = result.user;
+            setUser(user);
+            console.log(user);
+            navigation( from, {replace:true});
+        }).catch((error) => {
+
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            setError(errorMessage);
+
+
+        })
+        .finally(()=>{
+            setIsloading(false);
+        });
     }
-    const onSubmit = data => console.log(data);
+    const onSubmit = data => {
+        userSignin(data.email, data.password)
+        .then((result)=>{
+            setUser(result.user);
+            reset();
+            navigation( from, {replace:true});
+        })
+        .catch((error)=>{
+            setError(error.message);
+        })
+        console.log(data);
+
+    };
     return (
         <div>
             <div className="container">
