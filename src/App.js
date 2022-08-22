@@ -27,7 +27,7 @@ function App() {
           <Route path="/manageinventory" element={<PrivateRoute><ManageInventory /></PrivateRoute>}></Route>
           <Route path="/additem" element={<PrivateRoute><AddItem/></PrivateRoute>}></Route>
           <Route path="/myitems" element={<PrivateRoute><MyItems/></PrivateRoute>}></Route>
-          <Route path="/updateitem" element={<PrivateRoute><UpdateItem /></PrivateRoute>}></Route>
+          <Route path="/updateitem/:updateid" element={<PrivateRoute><UpdateItem /></PrivateRoute>}></Route>
           <Route path="/login" element={<LogIn />}></Route>
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/blogs" element={<BLogs />}></Route>

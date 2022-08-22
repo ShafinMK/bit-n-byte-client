@@ -1,17 +1,22 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const SampleItems = () => {
 
     const [items, setItems] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
-        fetch('https://shafinmk.github.io/resources-api/cyphersLab.json')
+        fetch('http://localhost:5000/products')
             .then(res => res.json())
             .then(data => {
                 setItems(data);
                 console.log(data);
             })
     }, []);
+    const handleUpdate = (itemId) =>{
+        navigate(`/updateItem/${itemId}`);
+    }
+
     return (
         <div className='container'>
 
@@ -20,14 +25,17 @@ const SampleItems = () => {
                 {
                     items.map(item => <div className='col'>
                         <div className="card">
-                            <img src={item.serviceThumb} className="card-img-top" alt="..." />
+                            <div className="d-flex justify-content-center">
+                            <img src={item.itemImage} className=" img-fluid" width='50%'  alt="..." />
+                            </div>
+                           
                             <div className="card-body">
                                 <div className='text-center'>
-                                    <h6 className="card-title">Card title</h6>
-                                    <h6>Price</h6>
-                                    <h6>quantity</h6>
-                                    <h6>Vendor:</h6>
-                                   <Link to='/updateitem'> <button className='btn btn-primary'>Update</button></Link>
+                                    <h6 className="card-title">{item.itemName}</h6>
+                                    <h6>৳ {item.itemPrice}</h6>
+                                    <h6>stock: {item.itemInStock}</h6>
+                                    <h6>Vendor: {item.vendorName}</h6>
+                                   <button onClick={()=> handleUpdate(item._id)} className='btn btn-primary'>Update</button>
                                 </div>
 
                             </div>

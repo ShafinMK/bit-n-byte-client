@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 const MyItems = () => {
     const [items, setItems] = useState([]);
     useEffect(()=>{
-        fetch('https://shafinmk.github.io/resources-api/cyphersLab.json')
+        fetch('http://localhost:5000/products')
         .then(res => res.json())
         .then(data => setItems(data))
     }, []);
@@ -19,7 +19,7 @@ const MyItems = () => {
                         <th scope='col'>Item Price</th>
                         <th scope='col'>Stock</th>
                         <th scope='col'>Vendor</th>
-                        <th scope='col'>Operation</th>
+                       
                     </tr>
                 </thead>
 
@@ -27,13 +27,13 @@ const MyItems = () => {
                     {
                         items.map((item, index) =>(
                             <tr>
-                                <td>{index}</td>
-                                <td><img src={item.serviceThumb} className='img-fluid' width='90' alt="" /></td>
-                                <td>{item.serviceName}</td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
+                                 <td>{index}</td>
+                                <td><img src={item.itemImage} className='img-fluid' width='90' alt="" /></td>
+                                <td>{item.itemName}</td>
+                                <td>{item.itemPrice}</td>
+                                <td>{item.itemInStock}</td>
+                                <td>{item.vendorName}</td>
+                               
                             </tr>
                         ))
                     }
