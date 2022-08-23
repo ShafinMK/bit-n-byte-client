@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./components/About/About";
+import AddBlog from "./components/AddBlog/AddBlog";
 import AddItem from "./components/AddItem/AddItem";
 import BLogs from "./components/Blogs/BLogs";
 import Contact from "./components/Contact/Contact";
@@ -32,6 +33,7 @@ function App() {
           <Route path="/signup" element={<SignUp />}></Route>
           <Route path="/blogs" element={<BLogs />}></Route>
           <Route path="/stockoutitems" element={<PrivateRoute><StockOutItems /></PrivateRoute>}></Route>
+          <Route path="/addblog" element={<PrivateRoute><AddBlog /></PrivateRoute>}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/contact" element={<Contact />}></Route>
           <Route path="/*" element={<NotFound />}></Route>

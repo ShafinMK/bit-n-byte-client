@@ -32,7 +32,7 @@ const AddItem = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
 
-        data.vendorName = user.displayName;
+        // data.vendorName = user.displayName;
         data.vendorEmail = user.email;
         data.itemInStock = itemstock;
         data.itemImage = itemImage;
@@ -52,6 +52,7 @@ const AddItem = () => {
                         position: toast.POSITION.TOP_LEFT
                     });
                     reset();
+                    setitemImage('https://jubilantconsumer.com/wp-content/themes/jubilant/assets/img/product.png');
                 }
             })
 
@@ -75,7 +76,8 @@ const AddItem = () => {
                         {/* vendor name  */}
                         <div class="mb-3">
                             <label class="form-label text-primary">Vendor Name</label>
-                            <span className='form-control'>{user.displayName}</span>
+                            {/* <span className='form-control'>{user.displayName}</span> */}
+                            <input type="text" defaultValue={user.displayName} className='form-control' {...register('vendorName', {required: true})} />
                         </div>
                         {/* item name  */}
                         <div class="mb-3">
