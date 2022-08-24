@@ -15,6 +15,9 @@ import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import SignUp from "./components/SignUp/SignUp";
 import StockOutItems from "./components/StockOutItems/StockOutItems";
 import UpdateItem from "./components/UpdateItem/UpdateItem";
+import './styles/fontColors.css';
+import './styles/fonts.css';
+import './styles/buttons.css';
 
 function App() {
   return (

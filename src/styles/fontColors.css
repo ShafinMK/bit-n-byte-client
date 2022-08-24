@@ -1,0 +1,13 @@
+.green-cyan{
+    color: #177165;
+}
+
+.black{
+    color: black;
+    transition-duration: .5s;
+    cursor: pointer;
+}
+.black:hover{
+    color: #177165;
+    
+}

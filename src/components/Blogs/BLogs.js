@@ -100,6 +100,53 @@ const BLogs = () => {
                                 </div>
                             ))
                         }
+
+                        <div>
+                            <div className='row align-items-center pb-3 mt-5'>
+                                <h4 className='col-4'>Tag Cloud</h4>
+                                <div className='col-8 p-0'>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/399/399425.png" className='img-fluid' style={{ height: '10px', width: '100%' }} alt="" />
+                                </div>
+
+                            </div>
+                            {/* tags */}
+                            <div className="d-flex ">
+
+
+                                <div className='me-2 px-3 py-1 shadow-sm'>#Programming</div>
+                                <div className='me-2 px-3 py-1 shadow-sm'>#Hardware</div>
+                                <div className='me-2 px-3 py-1 shadow-sm'>#Tech</div>
+                            </div>
+                            <div className="d-flex mt-3">
+                                <div className='me-2 px-3 py-1 shadow-sm'>#Software</div>
+                                <div className='me-2 px-3 py-1 shadow-sm'>#Story</div>
+                                <div className='me-2 px-3 py-1 shadow-sm'>#Sci-fi</div>
+                            </div>
+
+
+
+
+
+                        </div>
+                        {/* social icons section */}
+                        <div>
+                            <div className='row align-items-center pb-3 mt-5'>
+                                <h4 className='col-3'>Social</h4>
+                                <div className='col-9 p-0'>
+                                    <img src="https://cdn-icons-png.flaticon.com/512/399/399425.png" className='img-fluid' style={{ height: '10px', width: '100%' }} alt="" />
+                                </div>
+
+                            </div>
+
+                            <div>
+                                <div className="row row-cols-4">
+                                    <img src={require('../../images/icons/facebook.png')} className='col img-fluid' alt="" />
+                                    <img src={require('../../images/icons/twitter.png')} className='col img-fluid' alt="" />
+                                    <img src={require('../../images/icons/instagram.png')} className='col img-fluid' alt="" />
+                                    <img src={require('../../images/icons/feed.png')} className='col img-fluid' alt="" />
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

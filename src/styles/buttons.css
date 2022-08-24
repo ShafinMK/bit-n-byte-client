@@ -1,0 +1,21 @@
+.green-cyan-btn{
+    background-color: #177165;
+    transition-duration: .5s;
+    color: white;
+}
+.green-cyan-btn:hover{
+    background-color: black;
+    color: white;
+}
+
+.white-btn{
+    background-color: white;
+    color: #177165;
+    transition-duration: .5s;
+    font-weight: bold;
+}
+
+.white-btn:hover{
+    background-color: black;
+    color: white;
+}

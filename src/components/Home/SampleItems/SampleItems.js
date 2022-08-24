@@ -6,14 +6,14 @@ const SampleItems = () => {
     const [items, setItems] = useState([]);
     const navigate = useNavigate();
     useEffect(() => {
-        fetch('http://localhost:5000/products')
+        fetch('http://localhost:5000/homepageproducts')
             .then(res => res.json())
             .then(data => {
                 setItems(data);
                 console.log(data);
             })
     }, []);
-    const handleUpdate = (itemId) =>{
+    const handleUpdate = (itemId) => {
         navigate(`/updateItem/${itemId}`);
     }
 
@@ -24,18 +24,24 @@ const SampleItems = () => {
             <div className='row row-cols-1 row-cols-md-3 g-4'>
                 {
                     items.map(item => <div className='col'>
-                        <div className="card">
+                        <div className="card border-0 " onClick={() => handleUpdate(item._id)} style={{ cursor: 'pointer' }}>
                             <div className="d-flex justify-content-center">
-                            <img src={item.itemImage} className=" img-fluid" width='50%'  alt="..." />
+                                
+                                <img src={item.itemImage} className=" img-fluid" width='50%' alt="..." />
                             </div>
-                           
+                            
                             <div className="card-body">
                                 <div className='text-center'>
-                                    <h6 className="card-title">{item.itemName}</h6>
+                                    <h6>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                        <i class="fa-solid fa-star"></i>
+                                    </h6>
+                                    <h6 className="card-title green-cyan" style={{ height: '2em' }}>{item.itemName}</h6>
                                     <h6>৳ {item.itemPrice}</h6>
                                     <h6>stock: {item.itemInStock}</h6>
-                                    <h6>Vendor: {item.vendorName}</h6>
-                                   <button onClick={()=> handleUpdate(item._id)} className='btn btn-primary'>Update</button>
+                                    {/* <h6>Vendor: {item.vendorName}</h6> */}
+                                    {/* <button onClick={()=> handleUpdate(item._id)} className='btn btn-primary'>Update</button> */}
                                 </div>
 
                             </div>
@@ -45,7 +51,7 @@ const SampleItems = () => {
 
             </div>
             <div className='text-center py-5'>
-            <button className='btn btn-danger'>Show More</button>
+                <button onClick={()=> navigate('/manageinventory')} className='btn btn-danger'>Show More</button>
             </div>
         </div>
     );
