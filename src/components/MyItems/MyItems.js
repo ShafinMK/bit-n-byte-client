@@ -18,43 +18,55 @@ const MyItems = () => {
     // if (items.length < 0) {
     //     return (<div>Loading items .....</div>);
     // }
-    
-        return (
-            <div>
-                <h1 className='text-center py-5'>My Items</h1>
-                <table className='table'>
-                    <thead>
-                        <tr>
-                            <th scope='col'>Sl No.</th>
-                            <th scope='col'>Item Image</th>
-                            <th scope='col'>Item Name</th>
-                            <th scope='col'>Item Price</th>
-                            <th scope='col'>Stock</th>
-                            <th scope='col'>Vendor</th>
 
-                        </tr>
-                    </thead>
-
-                    <tbody>
-                        {
-                            items.length <1? <h3>You have not added any items yet</h3>:
-                            items.map((item, index) => (
-                                <tr>
-                                    <td>{index}</td>
-                                    <td><img src={item.itemImage} className='img-fluid' width='90' alt="" /></td>
-                                    <td>{item.itemName}</td>
-                                    <td>{item.itemPrice}</td>
-                                    <td>{item.itemInStock}</td>
-                                    <td>{item.vendorName}</td>
-
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
+    return (
+        <div className='common-bg'>
+            {/* <h1 className='text-center py-5'>My Items</h1> */}
+            <div className='d-flex justify-content-center py-3'>
+                <span className='fs-1 fw-bold custom-radius-header p-4'>My Items</span>
             </div>
-        );
-    
+            {
+                items.length < 1 ? <div className='d-flex justify-content-center'>
+                    <div className='text-center'>
+                        <img src={require('../../images/icons/nothingfound.png')} className='img-fluid w-50' alt="" />
+                        <h6 >You haven't added any items yet.....</h6>
+                    </div>
+                </div> :
+                    <table className='table container'>
+                        <thead>
+                            <tr className='green-cyan'>
+                                <th scope='col'>Sl No.</th>
+                                <th scope='col'>Item Image</th>
+                                <th scope='col'>Item Name</th>
+                                <th scope='col'>Item Price</th>
+                                <th scope='col'>Stock</th>
+                                <th scope='col'>Vendor</th>
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            {
+
+                                items.map((item, index) => (
+                                    <tr style={{background:'transparent'}}>
+                                        <td className='align-middle'>{index}</td>
+                                        <td className='align-middle'><img src={item.itemImage} className='img-fluid' width='90' alt="" /></td>
+                                        <td className='align-middle'>{item.itemName}</td>
+                                        <td className='align-middle'>{item.itemPrice}</td>
+                                        <td className='align-middle'>{item.itemInStock}</td>
+                                        <td className='align-middle'>{item.vendorName}</td>
+
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+            }
+
+        </div>
+    );
+
 
 
 

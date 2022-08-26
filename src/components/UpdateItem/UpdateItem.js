@@ -87,16 +87,16 @@ const UpdateItem = () => {
             })
     }, []);
     return (
-        <div>
+        <div className='common-bg'>
             <div className="container">
-                <h1 className='text-center py-5'>{item.itemName}</h1>
+                <h1 className='text-center py-5 green-cyan'>{item.itemName}</h1>
 
 
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
                         <div className="col-12 col-md-6">
                             <div className='mb-3'>
-                                <h5>Item Name</h5>
+                                <h5 className="green-cyan">Item Name</h5>
                                 <input className='form-control' type='text' defaultValue={item.itemName} {...register("itemName", { required: true })} />
                                 {errors.itemName && <span>This field is required</span>}
                             </div>
@@ -104,19 +104,19 @@ const UpdateItem = () => {
                             <div className='row mb-3'>
 
                                 <div className="col-12 col-md-6">
-                                    <h5>Price:</h5>
+                                    <h5 className="green-cyan">Price:</h5>
                                     <input className='form-control' defaultValue={item.itemPrice} type="number"{...register("itemPrice", { required: true })} />
                                     {errors.itemPrice && <span>This field is required</span>}
                                 </div>
                                 <div className="col-12 col-md-6">
-                                    <h5>Item In Stock: </h5>
+                                    <h5 className="green-cyan">Item In Stock: </h5>
                                     <h5 className='px-3 form-control' id='stock-id'>{item.itemInStock}</h5>
                                     {/* <input type="number" className='form-control' defaultValue={item.itemInStock} {...register('itemInStock', {required: true})} /> */}
                                 </div>
                             </div>
 
                             <div className="row mb-3">
-                                <h5>Restock Item</h5>
+                                <h5 className="green-cyan">Restock Item</h5>
                                 <div className='d-flex'>
                                     <button onClick={handleDecrease} className='btn btn-dark px-3' type="button"><i class="fa-solid fa-minus" ></i></button>
                                     <div className='col-2 mx-2'>
@@ -128,11 +128,11 @@ const UpdateItem = () => {
                             </div>
 
                             <div className='mb-3'>
-                                <h5>Features</h5>
-                                <ul>
-                                    {features.map(feature => feature !== '' ? <li>{feature}</li> : null)}
+                                <h5 className="green-cyan">Features</h5>
+                                
+                                    {features.map(feature => feature !== '' ? <p>&emsp;<i class="fa-solid fa-hand-point-right fs-5 green-cyan pe-3"></i>{feature}</p> : null)}
 
-                                </ul>
+                                
                             </div>
 
 
@@ -142,14 +142,14 @@ const UpdateItem = () => {
                         </div>
                         <div className=''>
                             <div className=' row mb-3'>
-                                <h5>Description</h5>
+                                <h5 className="green-cyan">Description</h5>
                                 <p className='' style={{ textAlign: 'justify' }}>
                                     {item.itemDetails}
                                 </p>
                             </div>
-                            <div className='d-flex justify-content-evenly'>
-                                <button onClick={() => handleDelivery(item._id)} type='button' className='btn btn-success col-4  px-4 py-2' >Delivered</button>
-                                <button  className='btn btn-warning col-4  px-4 py-2'>Update Item</button>
+                            <div className='d-flex justify-content-evenly py-5'>
+                                <button onClick={() => handleDelivery(item._id)} type='button' className='btn green-cyan-btn col-4  px-4 py-2' >Delivered</button>
+                                <button  className='btn white-btn col-4  px-4 py-2 border'>Update Item</button>
                                 <ToastContainer />
                             </div>
                         </div>

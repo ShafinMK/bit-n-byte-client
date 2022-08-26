@@ -21,7 +21,7 @@ const SampleItems = () => {
         <div className='container'>
 
             <h1 className='py-5 text-center'>Products</h1>
-            <div className='row row-cols-1 row-cols-md-3 g-4'>
+            <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4'>
                 {
                     items.map(item => <div className='col'>
                         <div className="card border-0 " onClick={() => handleUpdate(item._id)} style={{ cursor: 'pointer' }}>
@@ -37,7 +37,7 @@ const SampleItems = () => {
                                         <i class="fa-solid fa-star"></i>
                                         <i class="fa-solid fa-star"></i>
                                     </h6>
-                                    <h6 className="card-title green-cyan" style={{ height: '2em' }}>{item.itemName}</h6>
+                                    <h6 className="card-title green-cyan" style={{ height: '3em' }}>{item.itemName}</h6>
                                     <h6>৳ {item.itemPrice}</h6>
                                     <h6>stock: {item.itemInStock}</h6>
                                     {/* <h6>Vendor: {item.vendorName}</h6> */}
@@ -51,7 +51,7 @@ const SampleItems = () => {
 
             </div>
             <div className='text-center py-5'>
-                <button onClick={()=> navigate('/manageinventory')} className='btn btn-danger'>Show More</button>
+                <button onClick={()=> navigate('/manageinventory')} className='btn green-cyan-btn px-5'>Show More</button>
             </div>
         </div>
     );

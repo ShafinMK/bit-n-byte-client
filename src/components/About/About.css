@@ -1,0 +1,8 @@
+.grenn-cyan-bg{
+    background-color: #177165;
+    color: white;
+}
+
+.invert-img{
+    filter: invert(1);
+}

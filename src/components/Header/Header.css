@@ -1,3 +1,12 @@
-.nav-item{
-    
+
+
+.header-1{
+    background-color: #e8f6e9;
+}
+
+.active-nav-item{
+    color: #177165;
+}
+.active-nav-item:hover{
+    color: #177165;
 }

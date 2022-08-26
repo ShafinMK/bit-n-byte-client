@@ -17,7 +17,9 @@ const BLogs = () => {
         showmore ? setShowmore(false) : setShowmore(true);
     }
     return (
-        <div>
+        <div className='common-bg'>
+            <h6 className='text-center pt-3'>BLOG POST</h6>
+            <h1 className='text-center py-4 green-cyan'>News & Update</h1>
             <div className="container py-5">
                 <div className="row">
                     <div className="col-lg-8  ">
@@ -65,7 +67,7 @@ const BLogs = () => {
 
                                             </div>
                                             <div className='text-center py-3'>
-                                                <button onClick={showMore} className='btn btn-dark'>{showmore ? 'Show Less' : 'Continue Reading'}</button>
+                                                <button onClick={showMore} className='btn green-cyan-btn'>{showmore ? 'Show Less' : 'Continue Reading'}</button>
                                             </div>
                                         </div>
                                     </div>
@@ -76,7 +78,7 @@ const BLogs = () => {
 
                     <div className="col-lg-4">
                         <div className='row align-items-center pb-3'>
-                            <h4 className='col-5'>Recent Posts</h4>
+                            <h4 className='col-5 green-cyan'>Recent Posts</h4>
                             <div className='col-7 p-0'>
                                 <img src="https://cdn-icons-png.flaticon.com/512/399/399425.png" className='img-fluid' style={{ height: '10px', width: '100%' }} alt="" />
                             </div>
@@ -103,7 +105,7 @@ const BLogs = () => {
 
                         <div>
                             <div className='row align-items-center pb-3 mt-5'>
-                                <h4 className='col-4'>Tag Cloud</h4>
+                                <h4 className='col-4 green-cyan'>Tag Cloud</h4>
                                 <div className='col-8 p-0'>
                                     <img src="https://cdn-icons-png.flaticon.com/512/399/399425.png" className='img-fluid' style={{ height: '10px', width: '100%' }} alt="" />
                                 </div>
@@ -131,7 +133,7 @@ const BLogs = () => {
                         {/* social icons section */}
                         <div>
                             <div className='row align-items-center pb-3 mt-5'>
-                                <h4 className='col-3'>Social</h4>
+                                <h4 className='col-3 green-cyan'>Social</h4>
                                 <div className='col-9 p-0'>
                                     <img src="https://cdn-icons-png.flaticon.com/512/399/399425.png" className='img-fluid' style={{ height: '10px', width: '100%' }} alt="" />
                                 </div>

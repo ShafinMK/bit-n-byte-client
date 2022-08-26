@@ -11,3 +11,18 @@
     color: #177165;
     
 }
+
+.custom-radius-header{
+    background-color: #177165;
+    border-radius: 78% 22% 40% 60% / 48% 30% 70% 52% ;
+    color: white;
+}
+
+tbody tr{
+    background-color: white;
+    transition-duration: .5s;
+}
+
+tbody tr:hover{
+    background-color: #f3fffe;
+}

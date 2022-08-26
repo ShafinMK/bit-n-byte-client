@@ -1,0 +1,9 @@
+.common-bg{
+    background-image: url('../../images/aboutbg.webp');
+    /* background-image: url('https://img.freepik.com/premium-vector/background-white-elegant-texture_23-2148438404.jpg?w=1060'); */
+    /* background-size: cover; */
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
