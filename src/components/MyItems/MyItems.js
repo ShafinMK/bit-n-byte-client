@@ -1,23 +1,38 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
 
 const MyItems = () => {
     const [items, setItems] = useState([]);
     const { user } = useFirebase();
+    const {vendor} = useParams();
     // const [vendorName, setVendorname] = useState('');
     // setVendorname(user.displayName);
-    console.log(`http://localhost:5000/vendorsproduct?vendorname=${user.displayName}`);
+    console.log(`http://localhost:5000/vendorsproduct?vendorname=${vendor}`);
 
 
-    useEffect(() => {
+    // useEffect(() => {
 
-        fetch(`http://localhost:5000/vendorsproduct?vendorname=${user.displayName}`)
-            .then(res => res.json())
-            .then(data => setItems(data))
-    }, [user.displayName])
-    // if (items.length < 0) {
-    //     return (<div>Loading items .....</div>);
-    // }
+    //     fetch(`http://localhost:5000/vendorsproduct?vendorname=${user.displayName}`)
+    //         .then(res => res.json())
+    //         .then(data => setItems(data))
+    // }, [user.displayName])
+    useEffect( ()=>{
+        const getOrders = async() =>{
+            const url = `http://localhost:5000/vendorsproduct?vendoremail=${vendor}`;
+            const {data} = await axios.get(url, {
+                headers: {
+                    authorization: `Bearer ${localStorage.getItem('accessToken')}`
+                }
+            });
+            setItems(data);
+            console.log(data);
+        }
+        getOrders();
+    }, [user]);
+    
+   
 
     return (
         <div className='common-bg'>

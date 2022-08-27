@@ -5,7 +5,7 @@ import './Header.css';
 
 const Header = () => {
     const { user, logOut } = useFirebase();
-
+    const myOrderUrl = `/myitems/${user.email}`;
     //log out user
     const handleLogOut = () => {
         logOut();
@@ -17,7 +17,7 @@ const Header = () => {
                     
                     <div className='col-12 col-lg-3 d-flex justify-content-center'>
                         <img src={require('../../images/icons/logo.png')} width='40' className='img-fluid' alt="" />
-                        <h2 className=''>Bit n Byte</h2>
+                        <h2 className='logo mb-0 green-cyan'>Bit n Byte</h2>
                     </div>
                     <div className='col-12 col-lg-9 px-2 '>
                         <input className='bg-gray-200 rounded-5 w-100 px-2 py-2' placeholder='Search here' type="text" />
@@ -30,7 +30,7 @@ const Header = () => {
 
 
 
-                    <nav className="navbar navbar-expand-lg bg-light ">
+                    <nav className="navbar navbar-expand-lg bg-light " style={{position:'relative',zIndex:'1000'}}>
                         <div className="container-fluid ">
 
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -52,7 +52,7 @@ const Header = () => {
                                                     <NavLink to='/additem' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Add Item</h6></NavLink>
                                                 </li>
                                                 <li className="nav-item">
-                                                    <NavLink to='/myitems' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>My Items</h6></NavLink>
+                                                    <NavLink to={myOrderUrl} className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>My Items</h6></NavLink>
                                                 </li>
                                                 <li className="nav-item">
                                                     <NavLink to='/addblog' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Add Blog</h6></NavLink>
@@ -76,7 +76,7 @@ const Header = () => {
                                         <NavLink to='/contact' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Contacts</h6></NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        {user.email ? <button onClick={handleLogOut} className='btn btn-danger'><i className="fa-solid fa-arrow-right-from-bracket"></i></button> : <NavLink to='/login'><h6 className='px-4'>Log in</h6></NavLink>}
+                                        {user.email ? <button onClick={handleLogOut} className='btn btn-danger'><i className="fa-solid fa-arrow-right-from-bracket"></i></button> : <NavLink to='/login' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Log in</h6></NavLink>}
                                     </li>
                                 </ul>
                             </div>

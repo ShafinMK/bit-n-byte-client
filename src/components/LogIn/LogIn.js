@@ -5,42 +5,57 @@ import useFirebase from '../../hooks/useFirebase';
 
 const LogIn = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const {user, googleSignin, setUser, setError, setIsloading, userSignin} = useFirebase();
-    let  location = useLocation();
+    const { user, googleSignin, setUser, setError, setIsloading, userSignin } = useFirebase();
+    let location = useLocation();
     let navigation = useNavigate();
     let from = location.state?.from?.pathname || "/";
 
-    const handleGoogleSignin = ()=>{
+    const handleGoogleSignin = () => {
         googleSignin()
-        .then((result) => {
+            .then((result) => {
 
-            const user = result.user;
-            setUser(user);
-            console.log(user);
-            navigation( from, {replace:true});
-        }).catch((error) => {
+                const user = result.user;
+                setUser(user);
+                console.log(user);
+                navigation(from, { replace: true });
+            }).catch((error) => {
 
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            setError(errorMessage);
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                setError(errorMessage);
 
 
-        })
-        .finally(()=>{
-            setIsloading(false);
-        });
+            })
+            .finally(() => {
+                setIsloading(false);
+            });
     }
     const onSubmit = data => {
         userSignin(data.email, data.password)
-        .then((result)=>{
-            setUser(result.user);
-            reset();
-            navigation( from, {replace:true});
+            .then((result) => {
+                setUser(result.user);
+                reset();
+                // navigation(from, { replace: true });
+            })
+            .catch((error) => {
+                setError(error.message);
+            })
+        // console.log(data);
+        
+        //Token 
+        fetch('http://localhost:5000/login', {
+            method: 'POST', // or 'PUT'
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({email: data.email}),
         })
-        .catch((error)=>{
-            setError(error.message);
+        .then(res=> res.json())
+        .then(data => {
+            console.log(data);
+            localStorage.setItem('accessToken', data.accessToken);
+            navigation(from, { replace: true });
         })
-        console.log(data);
 
     };
     return (

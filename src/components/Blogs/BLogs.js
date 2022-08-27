@@ -5,7 +5,7 @@ const BLogs = () => {
     const [showmore, setShowmore] = useState(false);
     const [blogs, setBlogs] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('http://localhost:5000/randomblogs')
             .then(res => res.json())
             .then(data => {
                 console.log(data);

@@ -9,8 +9,8 @@ const Feature = () => {
                     <div className="col ">
                         <div className='text-center grenn-cyan-bg p-3 p-lg-5 rounded-5'>
                             <img src={require('../../images/icons/delivery.png')} className='img-fluid invert-img' width='50' alt="" />
-                            <h4 className='py-3'>Free Shipping</h4>
-                            <h6>Free shipping from warehouse</h6>
+                            <h4 className='py-3'>Fast Delivery</h4>
+                            <h6>Delivery within 2 hours</h6>
                         </div>
 
                     </div>
@@ -34,7 +34,7 @@ const Feature = () => {
                         <div className='text-center grenn-cyan-bg p-3 p-lg-5 rounded-5'>
                             <img src={require('../../images/icons/support.png')} className='img-fluid invert-img' width='50' alt="" />
                             <h4 className='py-3'>Online Support</h4>
-                            <h6>Online 24/7 support</h6>
+                            <h6>Get online 24/7 support</h6>
                         </div>
 
                     </div>

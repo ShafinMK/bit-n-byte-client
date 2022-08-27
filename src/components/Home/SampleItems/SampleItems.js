@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import './SampleItem.css';
 
 const SampleItems = () => {
 
@@ -24,7 +25,7 @@ const SampleItems = () => {
             <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4'>
                 {
                     items.map(item => <div className='col'>
-                        <div className="card border-0 " onClick={() => handleUpdate(item._id)} style={{ cursor: 'pointer' }}>
+                        <div className="card border-0 custom-shadow" onClick={() => handleUpdate(item._id)} style={{ cursor: 'pointer' }}>
                             <div className="d-flex justify-content-center">
                                 
                                 <img src={item.itemImage} className=" img-fluid" width='50%' alt="..." />
