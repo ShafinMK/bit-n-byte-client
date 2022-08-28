@@ -25,8 +25,8 @@ const AddBlog = () => {
         data.like = 0;
         data.comment = 0;
         data.date = findDate();
-        console.log(data);
-        fetch('http://localhost:5000/blogs', {
+        // console.log(data);
+        fetch('https://powerful-falls-56396.herokuapp.com/blogs', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ const AddBlog = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
 
                     toast.success("Blog Posted Successfully !", {
@@ -77,25 +77,25 @@ const AddBlog = () => {
                             <div className="mb-3">
                                 <label className='mb-3 green-cyan fw-bold'>Blog tags</label>
                                 <br />
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="Programming" value="Programming" {...register("tag1")} />
-                                    <label class="form-check-label" for="Programming">Programming</label>
+                                <div className="form-check ">
+                                    <input className="form-check-input" type="checkbox" id="Programming" value="Programming" {...register("tag1")} />
+                                    <label className="form-check-label" htmlFor="Programming">Programming</label>
                                 </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="Tech" value="Tech" {...register("tag2")} />
-                                    <label class="form-check-label" for="Tech">Tech</label>
+                                <div className="form-check ">
+                                    <input className="form-check-input" type="checkbox" id="Tech" value="Tech" {...register("tag2")} />
+                                    <label className="form-check-label" htmlFor="Tech">Tech</label>
                                 </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="Story" value="Story" {...register("tag3")} />
-                                    <label class="form-check-label" for="Story">Story</label>
+                                <div className="form-check ">
+                                    <input className="form-check-input" type="checkbox" id="Story" value="Story" {...register("tag3")} />
+                                    <label className="form-check-label" htmlFor="Story">Story</label>
                                 </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="Hardware" value="Hardware" {...register("tag4")} />
-                                    <label class="form-check-label" for="Hardware">Hardware</label>
+                                <div className="form-check ">
+                                    <input className="form-check-input" type="checkbox" id="Hardware" value="Hardware" {...register("tag4")} />
+                                    <label className="form-check-label" htmlFor="Hardware">Hardware</label>
                                 </div>
-                                <div class="form-check ">
-                                    <input class="form-check-input" type="checkbox" id="Software" value="Software" {...register("tag5")} />
-                                    <label class="form-check-label" for="Software">Software</label>
+                                <div className="form-check ">
+                                    <input className="form-check-input" type="checkbox" id="Software" value="Software" {...register("tag5")} />
+                                    <label className="form-check-label" htmlFor="Software">Software</label>
                                 </div>
                             </div>
                         </div>

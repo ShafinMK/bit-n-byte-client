@@ -11,16 +11,16 @@ import { useNavigate } from 'react-router-dom';
 const Home = () => {
     const navigate = useNavigate();
     return (
-        <div>
+        <div className='overflow-hidden'>
             <div className="row">
                 <div>
 
                     <div className="banner">
 
                         <div className="px-3 px-lg-5 mx-lg-5">
-                            <div className='row justify-content-between h-100 align-items-center'>
+                            <div className='row justify-content-between h-100 align-items-center' data-aos="fade-up">
 
-                                <div className='col-12 col-md-6 py-2 ' style={{position:'relative',zIndex:'2'}}>
+                                <div className='col-12 col-md-6 py-2 ' style={{position:'relative',zIndex:'2'}} >
                                     <div className='position-relative'>
                                         <span className='position-absolute top-0 start-0 translate-middle behind-circle' style={{zIndex:'1'}}></span>
                                         <h6 style={{position:'relative',zIndex:'2'}}>THE FUTURE IS HERE!</h6>

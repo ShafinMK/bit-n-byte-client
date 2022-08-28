@@ -2,37 +2,41 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
+import PulseLoader from "react-spinners/PulseLoader";
 
 const MyItems = () => {
     const [items, setItems] = useState([]);
     const { user } = useFirebase();
-    const {vendor} = useParams();
+    const { vendor } = useParams();
+    const [loading, setLoading] = useState(true);
     // const [vendorName, setVendorname] = useState('');
     // setVendorname(user.displayName);
-    console.log(`http://localhost:5000/vendorsproduct?vendorname=${vendor}`);
+    // console.log(`https://powerful-falls-56396.herokuapp.com/vendorsproduct?vendorname=${vendor}`);
 
 
     // useEffect(() => {
 
-    //     fetch(`http://localhost:5000/vendorsproduct?vendorname=${user.displayName}`)
+    //     fetch(`https://powerful-falls-56396.herokuapp.com/vendorsproduct?vendorname=${user.displayName}`)
     //         .then(res => res.json())
     //         .then(data => setItems(data))
     // }, [user.displayName])
-    useEffect( ()=>{
-        const getOrders = async() =>{
-            const url = `http://localhost:5000/vendorsproduct?vendoremail=${vendor}`;
-            const {data} = await axios.get(url, {
+    useEffect(() => {
+        const getOrders = async () => {
+            const url = `https://powerful-falls-56396.herokuapp.com/vendorsproduct?vendoremail=${vendor}`;
+            const { data } = await axios.get(url, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('accessToken')}`
                 }
             });
             setItems(data);
-            console.log(data);
+            setLoading(false);
+            // console.log(data);
         }
         getOrders();
+        // setLoading(false);
     }, [user]);
-    
-   
+
+
 
     return (
         <div className='common-bg'>
@@ -41,44 +45,52 @@ const MyItems = () => {
                 <span className='fs-1 fw-bold custom-radius-header p-4'>My Items</span>
             </div>
             {
-                items.length < 1 ? <div className='d-flex justify-content-center'>
-                    <div className='text-center'>
-                        <img src={require('../../images/icons/nothingfound.png')} className='img-fluid w-50' alt="" />
-                        <h6 >You haven't added any items yet.....</h6>
-                    </div>
-                </div> :
-                    <table className='table container'>
-                        <thead>
-                            <tr className='green-cyan'>
-                                <th scope='col'>Sl No.</th>
-                                <th scope='col'>Item Image</th>
-                                <th scope='col'>Item Name</th>
-                                <th scope='col'>Item Price</th>
-                                <th scope='col'>Stock</th>
-                                <th scope='col'>Vendor</th>
+                loading ? <div className='d-flex justify-content-center align-items-center vh-100'><PulseLoader color="#79c5ac" size={30} /></div> : <>
 
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {
-
-                                items.map((item, index) => (
-                                    <tr style={{background:'transparent'}}>
-                                        <td className='align-middle'>{index}</td>
-                                        <td className='align-middle'><img src={item.itemImage} className='img-fluid' width='90' alt="" /></td>
-                                        <td className='align-middle'>{item.itemName}</td>
-                                        <td className='align-middle'>{item.itemPrice}</td>
-                                        <td className='align-middle'>{item.itemInStock}</td>
-                                        <td className='align-middle'>{item.vendorName}</td>
+                    {
+                        items.length < 1 ? <div className='d-flex justify-content-center'>
+                            <div className='text-center'>
+                                <img src={require('../../images/icons/nothingfound.png')} className='img-fluid w-50' alt="" />
+                                <h6 className='pb-5'>You haven't added any items yet.....</h6>
+                            </div>
+                        </div> :
+                            <table className='table container'>
+                                <thead>
+                                    <tr className='green-cyan'>
+                                        <th scope='col'>Sl No.</th>
+                                        <th scope='col'>Item Image</th>
+                                        <th scope='col'>Item Name</th>
+                                        <th scope='col'>Item Price</th>
+                                        <th scope='col'>Stock</th>
+                                        <th scope='col'>Vendor</th>
 
                                     </tr>
-                                ))
-                            }
-                        </tbody>
-                    </table>
-            }
+                                </thead>
 
+                                <tbody>
+                                    {
+
+                                        items.map((item, index) => (
+                                            <tr style={{ background: 'transparent' }} key={item._id}>
+                                                <td className='align-middle'>{index+1}</td>
+                                                <td className='align-middle'><img src={item.itemImage} className='img-fluid' width='90' alt="" /></td>
+                                                <td className='align-middle'>{item.itemName}</td>
+                                                <td className='align-middle'>{item.itemPrice}</td>
+                                                <td className='align-middle'>{item.itemInStock}</td>
+                                                <td className='align-middle'>{item.vendorName}</td>
+
+                                            </tr>
+                                        ))
+                                    }
+                                </tbody>
+                            </table>
+                    }
+                </>
+
+            }
+            <div className="py-5"></div>
+            <div className="py-5"></div>
+            <div className="py-5"></div>
         </div>
     );
 

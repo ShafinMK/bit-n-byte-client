@@ -34,7 +34,7 @@ const UpdateItem = () => {
          item.itemInStock = data.itemInStock;
          
         
-        fetch(`http://localhost:5000/updateproduct/${updateid}`, {
+        fetch(`https://powerful-falls-56396.herokuapp.com/updateproduct/${updateid}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -57,7 +57,7 @@ const UpdateItem = () => {
     //handle delivery
     const handleDelivery = (productId) => {
         const itemInStock = { itemInStock: item.itemInStock - 1 }
-        fetch(`http://localhost:5000/products/${productId}`, {
+        fetch(`https://powerful-falls-56396.herokuapp.com/products/${productId}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
@@ -79,7 +79,7 @@ const UpdateItem = () => {
    
     //load update product api
     useEffect(() => {
-        fetch(`http://localhost:5000/products/${updateid}`)
+        fetch(`https://powerful-falls-56396.herokuapp.com/products/${updateid}`)
             .then(res => res.json())
             .then(data => {
                 setItem(data);
@@ -118,19 +118,19 @@ const UpdateItem = () => {
                             <div className="row mb-3">
                                 <h5 className="green-cyan">Restock Item</h5>
                                 <div className='d-flex'>
-                                    <button onClick={handleDecrease} className='btn btn-dark px-3' type="button"><i class="fa-solid fa-minus" ></i></button>
+                                    <button onClick={handleDecrease} className='btn btn-dark px-3' type="button"><i className="fa-solid fa-minus" ></i></button>
                                     <div className='col-2 mx-2'>
                                         <input onChange={setStock} type="number" className='form-control text-center ' defaultValue={itemrestock} id='restockAmount' />
                                         {/* {errors.itemInStock && <span className='text-danger'>This field is required</span>} */}
                                     </div>
-                                    <button onClick={handleIncrease} className='btn btn-dark px-3' type="button"><i class="fa-solid fa-plus"></i></button>
+                                    <button onClick={handleIncrease} className='btn btn-dark px-3' type="button"><i className="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
 
                             <div className='mb-3'>
                                 <h5 className="green-cyan">Features</h5>
                                 
-                                    {features.map(feature => feature !== '' ? <p>&emsp;<i class="fa-solid fa-hand-point-right fs-5 green-cyan pe-3"></i>{feature}</p> : null)}
+                                    {features.map(feature => feature !== '' ? <p>&emsp;<i className="fa-solid fa-hand-point-right fs-5 green-cyan pe-3"></i>{feature}</p> : null)}
 
                                 
                             </div>

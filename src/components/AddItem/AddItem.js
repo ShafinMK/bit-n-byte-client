@@ -26,7 +26,7 @@ const AddItem = () => {
     }
     const imagePreview = () => {
         let imageUrl = document.getElementById('item-image-url').value;
-        console.log(imageUrl);
+        // console.log(imageUrl);
         setitemImage(imageUrl);
     }
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
@@ -36,7 +36,7 @@ const AddItem = () => {
         data.vendorEmail = user.email;
         data.itemInStock = itemstock;
         data.itemImage = itemImage;
-        fetch('http://localhost:5000/products', {
+        fetch('https://powerful-falls-56396.herokuapp.com/products', {
             method: 'POST', // or 'PUT'
             headers: {
                 'Content-Type': 'application/json',
@@ -45,7 +45,7 @@ const AddItem = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
 
                     toast.success("Product Added Successfully !", {
@@ -57,7 +57,7 @@ const AddItem = () => {
             })
 
 
-        console.log(data);
+        // console.log(data);
     };
 
     return (
@@ -73,39 +73,39 @@ const AddItem = () => {
                     <div className="row">
                         <div className="col-12 col-md-6">
                             {/* vendor email  */}
-                            <div class="mb-3">
-                                <label class="form-label green-cyan fw-bold">Vendor Email address</label>
+                            <div className="mb-3">
+                                <label className="form-label green-cyan fw-bold">Vendor Email address</label>
                                 <span className='form-control'>{user.email}</span>
                             </div>
                             {/* vendor name  */}
-                            <div class="mb-3">
-                                <label class="form-label green-cyan fw-bold">Vendor Name</label>
+                            <div className="mb-3">
+                                <label className="form-label green-cyan fw-bold">Vendor Name</label>
                                 {/* <span className='form-control'>{user.displayName}</span> */}
                                 <input type="text" defaultValue={user.displayName} className='form-control' {...register('vendorName', { required: true })} />
                             </div>
                             {/* item name  */}
-                            <div class="mb-3">
-                                <label class="form-label green-cyan fw-bold">Item Name</label>
+                            <div className="mb-3">
+                                <label className="form-label green-cyan fw-bold">Item Name</label>
                                 <input type="text" className='form-control' {...register("itemName", { required: true })} />
                                 {errors.itemName && <span className='text-danger'>This field is required</span>}
                             </div>
                             {/* item unit price */}
-                            <div class="mb-3">
-                                <label class="form-label green-cyan fw-bold">Item Price</label>
+                            <div className="mb-3">
+                                <label className="form-label green-cyan fw-bold">Item Price</label>
                                 <input type="number" className='form-control' {...register("itemPrice", { required: true })} />
                                 {errors.itemPrice && <span className='text-danger'>This field is required</span>}
                             </div>
                             {/* item brand */}
-                            <div class="mb-3">
-                                <label class="form-label green-cyan fw-bold">Item Brand</label>
+                            <div className="mb-3">
+                                <label className="form-label green-cyan fw-bold">Item Brand</label>
                                 <input type="text" className='form-control' {...register("brand", { required: true })} />
                                 {errors.brand && <span className='text-danger'>This field is required</span>}
                             </div>
                             <div className="row">
                                 {/* hardware section */}
-                                <div class="col-12 col-lg-6 mb-3">
-                                    <label class="form-label green-cyan fw-bold">Hardware Section</label>
-                                    <select class="form-select" {...register("hardwareSection", { required: true })}>
+                                <div className="col-12 col-lg-6 mb-3">
+                                    <label className="form-label green-cyan fw-bold">Hardware Section</label>
+                                    <select className="form-select" {...register("hardwareSection", { required: true })}>
 
                                         <option value="Accessories">Accessories</option>
                                         <option value="Components">Components</option>
@@ -115,9 +115,9 @@ const AddItem = () => {
                                     {errors.hardwareType && <span className='text-danger'>This field is required</span>}
                                 </div>
                                 {/* hardware type */}
-                                <div class="col-12 col-lg-6 mb-3">
-                                    <label class="form-label green-cyan fw-bold">Hardware type</label>
-                                    <select class="form-select" {...register("hardwareType", { required: true })}>
+                                <div className="col-12 col-lg-6 mb-3">
+                                    <label className="form-label green-cyan fw-bold">Hardware type</label>
+                                    <select className="form-select" {...register("hardwareType", { required: true })}>
 
                                         <option value="Keyboard">Keyboard</option>
                                         <option value="Mouse">Mouse</option>
@@ -141,28 +141,28 @@ const AddItem = () => {
                             </div>
 
                             {/* item image */}
-                            <div class="mb-3">
-                                <label class="form-label green-cyan fw-bold">Item Image Url</label>
+                            <div className="mb-3">
+                                <label className="form-label green-cyan fw-bold">Item Image Url</label>
                                 <input onChange={imagePreview} type="text" className='form-control' id='item-image-url' required />
                                 {errors.imgUrl && <span className='text-danger'>This field is required</span>}
                             </div>
                             {/* item stock in inventory  */}
-                            <div class="mb-3">
-                                <label class="form-label green-cyan fw-bold">Stock Amount</label>
+                            <div className="mb-3">
+                                <label className="form-label green-cyan fw-bold">Stock Amount</label>
                                 <div className='d-flex'>
-                                    <button onClick={handleDecrease} className='btn green-cyan-btn px-3' type="button"><i class="fa-solid fa-minus" ></i></button>
+                                    <button onClick={handleDecrease} className='btn green-cyan-btn px-3' type="button"><i className="fa-solid fa-minus" ></i></button>
                                     <div className='col-2 mx-2'>
                                         <input onChange={setStock} type="number" className='form-control text-center ' defaultValue={itemstock} id='stockAmount' {...register("itemInStock", { required: true })} />
                                         {/* {errors.itemInStock && <span className='text-danger'>This field is required</span>} */}
                                     </div>
-                                    <button onClick={handleIncrease} className='btn green-cyan-btn px-3' type="button"><i class="fa-solid fa-plus"></i></button>
+                                    <button onClick={handleIncrease} className='btn green-cyan-btn px-3' type="button"><i className="fa-solid fa-plus"></i></button>
                                 </div>
                             </div>
 
                             {/* item features  */}
                             <div className="mb-3">
 
-                                <label class="form-label green-cyan fw-bold">Features</label>
+                                <label className="form-label green-cyan fw-bold">Features</label>
                                 <input type="text" className='form-control my-2' placeholder='Feature 1' {...register("feature1", { required: true })} />
                                 {errors.feature1 && <span className='text-danger'>This field is required</span>}
 
@@ -184,12 +184,12 @@ const AddItem = () => {
                         </div>
                         <div className="col-12 col-md-6">
                             <div className='mb-3'>
-                                <label class="form-label green-cyan fw-bold">Item Description</label>
+                                <label className="form-label green-cyan fw-bold">Item Description</label>
                                 <textarea className='form-control' cols="30" rows="10" {...register("itemDetails", { required: true })}></textarea>
                                 {errors.itemDetails && <span className='text-danger'>This field is required</span>}
                             </div>
                             <div className='mb-3'>
-                                <label class="form-label green-cyan fw-bold">Item Image</label>
+                                <label className="form-label green-cyan fw-bold">Item Image</label>
                                 <img src={itemImage} className='img-fluid w-100' alt="" />
                             </div>
 

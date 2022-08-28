@@ -2,7 +2,7 @@ import React from 'react';
 
 const Feature = () => {
     return (
-        <div>
+        <div data-aos="fade-up">
              {/* our features */}
              <div className='mx-lg-5 px-lg-5 py-5 my-lg-5'>
                 <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">

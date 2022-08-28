@@ -17,27 +17,27 @@ const Header = () => {
                     
                     <div className='col-12 col-lg-3 d-flex justify-content-center'>
                         <img src={require('../../images/icons/logo.png')} width='40' className='img-fluid' alt="" />
-                        <h2 className='logo mb-0 green-cyan'>Bit n Byte</h2>
+                        <h2 className='logo mb-0 text-light'>Bit n Byte</h2>
                     </div>
                     <div className='col-12 col-lg-9 px-2 '>
                         <input className='bg-gray-200 rounded-5 w-100 px-2 py-2' placeholder='Search here' type="text" />
                     </div>
                 </div>
             </div>
-            <div className='container mx-auto py-2'>
-                <div className='grid grid-cols-4 '>
+            <div className='container-xxl mx-auto py-2'>
+                <div className=''>
 
 
 
 
-                    <nav className="navbar navbar-expand-lg bg-light " style={{position:'relative',zIndex:'1000'}}>
+                    <nav className="navbar navbar-expand-lg bg-light rounded" style={{position:'relative',zIndex:'1000'}}>
                         <div className="container-fluid ">
 
                             <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                                 <span className="navbar-toggler-icon"></span>
                             </button>
                             <div className="collapse navbar-collapse justify-content-center" id="navbarNav">
-                                <ul className="navbar-nav d-flex align-items-center" >
+                                <ul className="navbar-nav d-flex align-items-center text-center" >
                                     <li className="nav-item">
                                         <NavLink to='/home' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Home</h6></NavLink>
                                     </li>
@@ -76,7 +76,7 @@ const Header = () => {
                                         <NavLink to='/contact' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Contacts</h6></NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        {user.email ? <button onClick={handleLogOut} className='btn btn-danger'><i className="fa-solid fa-arrow-right-from-bracket"></i></button> : <NavLink to='/login' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Log in</h6></NavLink>}
+                                        {user.email ? <h6 onClick={handleLogOut} className='btn'><i className="fa-solid fa-arrow-right-from-bracket pe-2"></i>Sign out</h6> : <NavLink to='/login' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4'>Log in</h6></NavLink>}
                                     </li>
                                 </ul>
                             </div>

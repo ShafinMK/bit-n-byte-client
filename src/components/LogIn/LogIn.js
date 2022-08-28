@@ -1,23 +1,42 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
+import SyncLoader from "react-spinners/SyncLoader";
 
 const LogIn = () => {
+    const [loading, setLoading] = useState(false);
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { user, googleSignin, setUser, setError, setIsloading, userSignin } = useFirebase();
+    const { user, error, googleSignin, setUser, setError, setIsloading, userSignin } = useFirebase();
     let location = useLocation();
     let navigation = useNavigate();
     let from = location.state?.from?.pathname || "/";
 
     const handleGoogleSignin = () => {
+        setLoading(true);
         googleSignin()
             .then((result) => {
 
                 const user = result.user;
                 setUser(user);
-                console.log(user);
-                navigation(from, { replace: true });
+                // console.log(user);
+                
+                //Token 
+                fetch('https://powerful-falls-56396.herokuapp.com/login', {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: user.email }),
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        localStorage.setItem('accessToken', data.accessToken);
+                        setLoading(false);
+                        navigation(from, { replace: true });
+                    })
+                // navigation(from, { replace: true });
             }).catch((error) => {
 
                 const errorCode = error.code;
@@ -28,34 +47,40 @@ const LogIn = () => {
             })
             .finally(() => {
                 setIsloading(false);
+                setLoading(false);
             });
     }
     const onSubmit = data => {
+        setLoading(true);
+        setError('');
         userSignin(data.email, data.password)
             .then((result) => {
                 setUser(result.user);
+                setLoading(false);
+                //Token 
+                fetch('https://powerful-falls-56396.herokuapp.com/login', {
+                    method: 'POST', // or 'PUT'
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ email: data.email }),
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        // console.log(data);
+                        localStorage.setItem('accessToken', data.accessToken);
+                        navigation(from, { replace: true });
+                    })
                 reset();
                 // navigation(from, { replace: true });
             })
             .catch((error) => {
                 setError(error.message);
+                setLoading(false);
             })
         // console.log(data);
-        
-        //Token 
-        fetch('http://localhost:5000/login', {
-            method: 'POST', // or 'PUT'
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({email: data.email}),
-        })
-        .then(res=> res.json())
-        .then(data => {
-            console.log(data);
-            localStorage.setItem('accessToken', data.accessToken);
-            navigation(from, { replace: true });
-        })
+
+
 
     };
     return (
@@ -73,7 +98,7 @@ const LogIn = () => {
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-floating mb-3">
                                 <input type="email" className='form-control ps-3' {...register("email", { required: true })} placeholder='email' />
-                                <label><i class="fa-solid fa-envelope px-3"></i>Email</label>
+                                <label><i className="fa-solid fa-envelope px-3"></i>Email</label>
                                 {errors.email && <span>This field is required</span>}
                             </div>
                             <div className="form-floating mb-3">
@@ -82,12 +107,17 @@ const LogIn = () => {
                                 {errors.password && <span>This field is required</span>}
                             </div>
 
+                            {/* show loading  */}
+                            {loading ? <div className='d-flex justify-content-center align-items-center py-3'><SyncLoader color="#79c5ac" size={20} /></div> : null}
+
+                            {/* error message  */}
+                            {error ? <h6 className='text-center text-danger py-3'>{error}</h6> : null}
                             <div className="text-center">
                                 <button className='btn btn-success px-5 py-2'>Log in</button>
                             </div>
                         </form>
                         <div className='py-5 text-center'>
-                            <button onClick={handleGoogleSignin} className='btn btn-light px-5 py-2'><i class="fa-brands fa-google pe-3"></i>Sign in with Google</button>
+                            <button onClick={handleGoogleSignin} className='btn btn-light px-5 py-2'><i className="fa-brands fa-google pe-3"></i>Sign in with Google</button>
                             <Link to='/signup'><h6 className='py-5'>New User? Signup Now!</h6></Link>
                         </div>
                     </div>

@@ -8,14 +8,14 @@ const BlogPost = () => {
 
     return (
         <div className='py-5'>
-            <div>
+            <div data-aos="fade-up">
                 <h6 className='text-center'>BLOG POST</h6>
                 <h1 className='text-center py-4 green-cyan'>News & Update</h1>
             </div>
             <div className="row mx-lg-5 p-3 px-lg-5 justify-content-evenly">
 
 
-                <div className='col-12 col-md-6 col-lg-3'>
+                <div className='col-12 col-md-6 col-lg-3' data-aos="fade-right" data-aos-duration="800">
                     <div className='position-relative'>
                         <div className="img-container">
                             <img src={require('../../images/hardware1.jpg')} className='img-fluid rounded-4' alt="" />
@@ -32,7 +32,7 @@ const BlogPost = () => {
                     <p style={{ height: '6em' }}>CPU coolers are designed to dissipate heat produced by the processor that sits at the heart of your PC. The fans, radiators, and other elements...</p>
                     <h6 onClick={() => navigate('/blogs')} className='pt-4 black hover-underline-animation'>READ MORE</h6>
                 </div>
-                <div className='col-12 col-md-6 col-lg-3'>
+                <div className='col-12 col-md-6 col-lg-3' data-aos="fade-right" data-aos-duration="1000">
                     <div className='position-relative'>
                         <div className="img-container">
                             <img src={require('../../images/hardware2.jpg')} className='img-fluid rounded-4' alt="" />
@@ -49,7 +49,7 @@ const BlogPost = () => {
                     <p style={{ height: '6em' }}>In dual-channel mode, two RAM sticks communicate simultaneously on separate channels to operate your computer and run programs significantly faster. Therefore,...</p>
                     <h6 onClick={() => navigate('/blogs')} className='pt-4 black hover-underline-animation'>READ MORE</h6>
                 </div>
-                <div className='col-12 col-md-6 col-lg-3'>
+                <div className='col-12 col-md-6 col-lg-3' data-aos="fade-right" data-aos-duration="1500">
                     <div className='position-relative'>
                         <div className="img-container">
                             <img src={require('../../images/hardware3.jpg')} className='img-fluid rounded-4' alt="" />

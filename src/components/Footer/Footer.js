@@ -37,9 +37,9 @@ const Footer = () => {
                     </div>
                     <div className="col-12 col-md-6 col-lg-4 py-5">
                         <h3 className='green-cyan'>NewsLetter</h3>
-                        <div class="input-group mb-3 rounded-pill" style={{ backgroundColor: 'lightgrey' }}>
-                            <input type="email" class="form-control rounded-pill border-0 shadow-none mx-2" placeholder="Email" aria-label="Recipient's username" style={{ backgroundColor: 'lightgrey' }} aria-describedby="button-addon2" />
-                            <button class="btn btn-outline-secondary rounded-pill green-cyan-btn" type="button" id="button-addon2">Subscribe</button>
+                        <div className="input-group mb-3 rounded-pill" style={{ backgroundColor: 'lightgrey' }}>
+                            <input type="email" className="form-control rounded-pill border-0 shadow-none mx-2" placeholder="Email" aria-label="Recipient's username" style={{ backgroundColor: 'lightgrey' }} aria-describedby="button-addon2" />
+                            <button className="btn btn-outline-secondary rounded-pill green-cyan-btn" type="button" id="button-addon2">Subscribe</button>
                         </div>
                     </div>
 
