@@ -19,7 +19,7 @@ const About = () => {
 
             <div className='row px-lg-5 mx-lg-5 justify-content-around'>
 
-                <div className="col-12 col-md-6 col-lg-3" data-aos="fade-right">
+                <div className="col-11 col-md-5 col-lg-3" data-aos="fade-right">
                     <div className='pt-lg-5'></div>
                     <div className='pt-lg-5'></div>
                     <h3 className='black' onClick={()=> navigate('/about')}>Design & Customization</h3>
@@ -27,7 +27,7 @@ const About = () => {
                     <img src={require('../../images/computer1.jpg')} className='img-fluid img-c-b-r-1' alt="" />
                 </div>
 
-                <div className='col-12 col-md-6 col-lg-3' data-aos="fade-right">
+                <div className='col-11 col-md-5 col-lg-3' data-aos="fade-right">
                     <img src={require('../../images/hardware care.webp')} className='img-fluid' alt="" />
                     <div className='pt-lg-5'></div>
                     <h3 className='black ' onClick={()=> navigate('/about')}>Hardware care</h3>
@@ -35,7 +35,7 @@ const About = () => {
                     <img src={require('../../images/computer2.jpg')} className='img-fluid img-c-b-r-1' style={{ borderRadius: '15px 15px 15px 90px' }} alt="" />
                 </div>
 
-                <div className="col-12 col-md-6 col-lg-3" data-aos="fade-right">
+                <div className="col-11 col-md-5 col-lg-3" data-aos="fade-right">
                     <div className='pt-lg-5'></div>
                     <div className='pt-lg-5'></div>
                     <div className='pt-lg-5'></div>

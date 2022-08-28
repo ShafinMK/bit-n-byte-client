@@ -24,23 +24,29 @@ const About = () => {
 
                 <div className='row px-lg-5 mx-lg-5 justify-content-around'>
 
-                    <div className="col-12 col-md-6 col-lg-3">
+                    <div className="col-11 col-md-5 col-lg-3">
                         <div className='pt-lg-5'></div>
                         <div className='pt-lg-5'></div>
                         <h3 className='black' onClick={() => navigate('/')}>Design & Customization</h3>
                         <p className='py-3'>custom-built PC is a computer that's built and customized to meet specific consumer needs. People build computers for gaming, video and photo editing, animation, web browsing, and productivity needs</p>
-                        <img src={require('../../images/computer1.jpg')} className='img-fluid img-c-b-r-1' alt="" />
+                        <div className="img-container">
+                            <img src={require('../../images/computer4.jpg')} className='img-fluid img-c-b-r-1' alt="" />
+                            <div className='overlay img-c-b-r-1'></div>
+                        </div>
                     </div>
 
-                    <div className='col-12 col-md-6 col-lg-3'>
-                        <img src={require('../../images/hardware care.webp')} className='img-fluid' alt="" />
+                    <div className='col-11 col-md-5 col-lg-3'>
+                        <img src={require('../../images/pc-repair.png')} className='img-fluid' alt="" />
                         <div className='pt-lg-5'></div>
                         <h3 className='black ' onClick={() => navigate('/')}>Hardware care</h3>
                         <p className='py-3'>Computers, just like any other electronic device, need regular maintenance. The same way that you attend your annual medical check-up, your computer also needs scheduled maintenance of its computer hardware to ensure that you are doing everything you can to extend its lifespan. This is what many people call preventative maintenance.</p>
-                        <img src={require('../../images/computer2.jpg')} className='img-fluid img-c-b-r-1' style={{ borderRadius: '15px 15px 15px 90px' }} alt="" />
+                        <div className="img-container">
+                            <img src={require('../../images/computer5.jpg')} className='img-fluid img-c-b-r-1' style={{ borderRadius: '15px 15px 15px 90px' }} alt="" />
+                            <div className='overlay'  style={{ borderRadius: '15px 15px 15px 90px' }}></div>
+                        </div>
                     </div>
 
-                    <div className="col-12 col-md-6 col-lg-3">
+                    <div className="col-11 col-md-5 col-lg-3">
                         <div className='pt-lg-5'></div>
                         <div className='pt-lg-5'></div>
                         <div className='pt-lg-5'></div>
@@ -48,14 +54,17 @@ const About = () => {
                         <div className='pt-lg-5'></div>
                         <h3 className='black' onClick={() => navigate('/')}>Smart Planning</h3>
                         <p className='py-3'>Picking the right components for the build you need can be a daunting process at first, but once you dive in, you’ll see that it’s not only surprisingly simple, it’s a heck of a lot of fun. This guide is by no means meant to be exhaustive, it’s more a primer on what you’ll need to know to gather up the right parts, and start putting your dream build together.</p>
-                        <img src={require('../../images/computer3_1.jpg')} className='img-fluid' style={{ borderRadius: '90px 15px 15px 15px' }} alt="" />
+                        <div className="img-container">
+                            <img src={require('../../images/computer6.jpg')} className='img-fluid' style={{ borderRadius: '90px 15px 15px 15px' }} alt="" />
+                            <div className='overlay ' style={{ borderRadius: '90px 15px 15px 15px' }}></div>
+                        </div>
                     </div>
 
                 </div>
 
             </div>
 
-           <Feature></Feature>
+            <Feature></Feature>
 
         </div>
     );

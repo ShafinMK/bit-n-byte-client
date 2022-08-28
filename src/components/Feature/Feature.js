@@ -5,7 +5,7 @@ const Feature = () => {
         <div data-aos="fade-up">
              {/* our features */}
              <div className='mx-lg-5 px-lg-5 py-5 my-lg-5'>
-                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4">
+                <div className="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 px-1">
                     <div className="col ">
                         <div className='text-center grenn-cyan-bg p-3 p-lg-5 rounded-5'>
                             <img src={require('../../images/icons/delivery.png')} className='img-fluid invert-img' width='50' alt="" />
@@ -48,7 +48,7 @@ const Feature = () => {
             {/* our clients  */}
             <h1 className='text-center py-4 green-cyan'>Official Importer of</h1>
             <div className='mx-lg-5 px-lg-5 py-5 my-lg-5'>
-                <div className="row row-cols-2 row-cols-lg-4 g-4">
+                <div className="row row-cols-2 row-cols-lg-4 g-4 px-1">
                     <div className="col ">
                         <div className='text-center p-3 p-lg-5 rounded-5 shadow'>
                             <a href="https://www.msi.com/index.php">

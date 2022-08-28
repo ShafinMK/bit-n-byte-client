@@ -1,11 +1,12 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useFirebase from '../../hooks/useFirebase';
 import './Header.css';
 
 const Header = () => {
     const { user, logOut } = useFirebase();
     const myOrderUrl = `/myitems/${user.email}`;
+    const navigate = useNavigate();
     //log out user
     const handleLogOut = () => {
         logOut();
@@ -15,7 +16,7 @@ const Header = () => {
             <div className='container mx-auto header-1'>
                 <div className='row justify-content-center align-items-center py-2'>
                     
-                    <div className='col-12 col-lg-3 d-flex justify-content-center'>
+                    <div className='col-12 col-lg-3 d-flex justify-content-center' onClick={()=> navigate('/')} style={{cursor: 'pointer'}}>
                         <img src={require('../../images/icons/logo.png')} width='40' className='img-fluid' alt="" />
                         <h2 className='logo mb-0 text-light'>Bit n Byte</h2>
                     </div>
