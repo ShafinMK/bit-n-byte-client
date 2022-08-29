@@ -63,7 +63,7 @@ const BLogs = () => {
                                                 </div>
                                                 {/* description */}
                                                 <div>
-                                                    <p>
+                                                    <p style={{textAlign:'justify'}}>
                                                         {showmore ? blog.blogDescription : blog.blogDescription.slice(0, 210) + '...'}
                                                     </p>
 

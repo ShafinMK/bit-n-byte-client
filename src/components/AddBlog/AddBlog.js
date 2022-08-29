@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { ToastContainer, toast } from 'react-toastify';
+import SyncLoader from "react-spinners/SyncLoader";
 
 const AddBlog = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
+    const [loading, setLoading] = useState(false);
     const [blogimg, setBlogimg] = useState('https://jubilantconsumer.com/wp-content/themes/jubilant/assets/img/product.png');
     const handleBlogimage = () => {
         const imgUrl = document.getElementById('blog-img').value;
@@ -21,6 +23,7 @@ const AddBlog = () => {
     }
 
     const onSubmit = data => {
+        setLoading(true);
         data.blogImage = blogimg;
         data.like = 0;
         data.comment = 0;
@@ -42,7 +45,8 @@ const AddBlog = () => {
                         position: toast.POSITION.TOP_LEFT
                     });
                     reset();
-                    setBlogimg('https://jubilantconsumer.com/wp-content/themes/jubilant/assets/img/product.png')
+                    setBlogimg('https://jubilantconsumer.com/wp-content/themes/jubilant/assets/img/product.png');
+                    setLoading(false);
                 }
             })
     }
@@ -111,7 +115,8 @@ const AddBlog = () => {
                         {errors.blogDescription && <span className='text-danger'>This field is required</span>}
                     </div>
 
-
+                    {/* show loading  */}
+                    {loading ? <div className='d-flex justify-content-center align-items-center py-3'><SyncLoader color="#79c5ac" size={20} /></div> : null}
 
                     <div className='py-5 text-center'>
                         <button className='btn green-cyan-btn px-5 py-2 py-lg-3 rounded-pill'>Post</button>

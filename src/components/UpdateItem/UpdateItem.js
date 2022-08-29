@@ -2,13 +2,15 @@ import React, { useEffect, useState } from 'react';
 import { useForm } from "react-hook-form";
 import { useParams } from 'react-router-dom';
 import { ToastContainer, toast } from 'react-toastify';
+import SyncLoader from "react-spinners/SyncLoader";
 
 const UpdateItem = () => {
     const [item, setItem] = useState({});
+    const [loading, setLoading] = useState(false);
     const features = [item.feature1, item.feature2, item.feature3, item.feature4, item.feature5, item.feature6];
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const { updateid } = useParams();
-    
+
 
     //restock item
     const [itemrestock, setItemrestock] = useState(0);
@@ -28,12 +30,13 @@ const UpdateItem = () => {
         setItemrestock(document.getElementById('restockAmount').value);
         console.log('ads');
     }
-     //handle Update
-     const onSubmit = data => {
-         data.itemInStock = parseInt(item.itemInStock) + parseInt(itemrestock);
-         item.itemInStock = data.itemInStock;
-         
-        
+    //handle Update
+    const onSubmit = data => {
+        setLoading(true);
+        data.itemInStock = parseInt(item.itemInStock) + parseInt(itemrestock);
+        item.itemInStock = data.itemInStock;
+
+
         fetch(`https://powerful-falls-56396.herokuapp.com/updateproduct/${updateid}`, {
             method: 'PUT',
             headers: {
@@ -41,21 +44,23 @@ const UpdateItem = () => {
             },
             body: JSON.stringify(data)
         })
-        .then(res => res.json())
-        .then(data => {
-            if(data.modifiedCount>0){
-                toast.info("Done! Item Updated", {
-                    position: toast.POSITION.TOP_CENTER
-                });
-               
-            }
-            setItemrestock(0);
-            document.getElementById('restockAmount').value=0;
-        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    toast.info("Done! Item Updated", {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+
+                }
+                setItemrestock(0);
+                document.getElementById('restockAmount').value = 0;
+                setLoading(false);
+            })
         console.log(data);
     };
     //handle delivery
     const handleDelivery = (productId) => {
+        setLoading(true);
         const itemInStock = { itemInStock: item.itemInStock - 1 }
         fetch(`https://powerful-falls-56396.herokuapp.com/products/${productId}`, {
             method: 'PUT',
@@ -71,12 +76,14 @@ const UpdateItem = () => {
                     toast.info("Done! Item Stock Updated", {
                         position: toast.POSITION.BOTTOM_CENTER
                     });
+                    setLoading(false);
                     document.getElementById('stock-id').innerHTML = item.itemInStock - 1;
+                    window.location.reload();
                 }
             })
 
     }
-   
+
     //load update product api
     useEffect(() => {
         fetch(`https://powerful-falls-56396.herokuapp.com/products/${updateid}`)
@@ -129,10 +136,10 @@ const UpdateItem = () => {
 
                             <div className='mb-3'>
                                 <h5 className="green-cyan">Features</h5>
-                                
-                                    {features.map(feature => feature !== '' ? <p>&emsp;<i className="fa-solid fa-hand-point-right fs-5 green-cyan pe-3"></i>{feature}</p> : null)}
 
-                                
+                                {features.map(feature => feature !== '' ? <p>&emsp;<i className="fa-solid fa-hand-point-right fs-5 green-cyan pe-3"></i>{feature}</p> : null)}
+
+
                             </div>
 
 
@@ -147,9 +154,11 @@ const UpdateItem = () => {
                                     {item.itemDetails}
                                 </p>
                             </div>
+                            {/* show loading  */}
+                            {loading ? <div className='d-flex justify-content-center align-items-center py-3'><SyncLoader color="#79c5ac" size={20} /></div> : null}
                             <div className='d-flex justify-content-evenly py-5'>
                                 <button onClick={() => handleDelivery(item._id)} type='button' className='btn green-cyan-btn col-4  px-4 py-2' >Delivered</button>
-                                <button  className='btn white-btn col-4  px-4 py-2 border'>Update Item</button>
+                                <button className='btn white-btn col-4  px-4 py-2 border'>Update Item</button>
                                 <ToastContainer />
                             </div>
                         </div>

@@ -39,7 +39,8 @@
     width: 100%;
     opacity: 0;
     transition: .5s ease;
-    background-color: #177165;
+    /* background-color: #177165; */
+    background-color: #009f9f;
   }
 
   .img-container:hover .overlay {

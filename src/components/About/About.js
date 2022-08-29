@@ -7,7 +7,7 @@ import './About.css';
 const About = () => {
     let navigate = useNavigate();
     return (
-        <div>
+        <div className='overflow-hidden'>
             {/* <h3 className='text-center'>About Us</h3> */}
             <div className='about-bg-image'>
 

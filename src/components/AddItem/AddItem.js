@@ -3,11 +3,14 @@ import { useForm } from "react-hook-form";
 import useFirebase from '../../hooks/useFirebase';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import SyncLoader from "react-spinners/SyncLoader";
+
 
 const AddItem = () => {
     const [itemImage, setitemImage] = useState('https://jubilantconsumer.com/wp-content/themes/jubilant/assets/img/product.png');
     const { user } = useFirebase();
     const [itemstock, setItemstock] = useState(10);
+    const [loading, setLoading] = useState(false);
 
     const handleIncrease = () => {
         let stockAmount = document.getElementById('stockAmount');
@@ -29,9 +32,12 @@ const AddItem = () => {
         // console.log(imageUrl);
         setitemImage(imageUrl);
     }
+
+
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const onSubmit = data => {
 
+        setLoading(true);
         // data.vendorName = user.displayName;
         data.vendorEmail = user.email;
         data.itemInStock = itemstock;
@@ -53,6 +59,7 @@ const AddItem = () => {
                     });
                     reset();
                     setitemImage('https://jubilantconsumer.com/wp-content/themes/jubilant/assets/img/product.png');
+                    setLoading(false);
                 }
             })
 
@@ -92,7 +99,7 @@ const AddItem = () => {
                             {/* item unit price */}
                             <div className="mb-3">
                                 <label className="form-label green-cyan fw-bold">Item Price</label>
-                                <input type="number" className='form-control' {...register("itemPrice", { required: true })} />
+                                <input type="number" inputmode="numeric" className='form-control' {...register("itemPrice", { required: true })} />
                                 {errors.itemPrice && <span className='text-danger'>This field is required</span>}
                             </div>
                             {/* item brand */}
@@ -195,7 +202,8 @@ const AddItem = () => {
 
                         </div>
                     </div>
-
+                    {/* show loading  */}
+                    {loading ? <div className='d-flex justify-content-center align-items-center py-3'><SyncLoader color="#79c5ac" size={20} /></div> : null}
 
                     <div className='text-center py-5'>
                         <button className='btn green-cyan-btn px-5 py-2'>Add This Item</button>
