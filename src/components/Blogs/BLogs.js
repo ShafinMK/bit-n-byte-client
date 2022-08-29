@@ -163,10 +163,10 @@ const BLogs = () => {
 
                                     <div>
                                         <div className="row row-cols-4">
-                                            <img src={require('../../images/icons/facebook.png')} className='col img-fluid' alt="" />
-                                            <img src={require('../../images/icons/twitter.png')} className='col img-fluid' alt="" />
-                                            <img src={require('../../images/icons/instagram.png')} className='col img-fluid' alt="" />
-                                            <img src={require('../../images/icons/feed.png')} className='col img-fluid' alt="" />
+                                            <a href="https://www.facebook.com/shafin.muhammad.9/"><img src={require('../../images/icons/facebook.png')} className='col img-fluid' alt="" /></a>
+                                            <a href="https://twitter.com/Shafin70398972"><img src={require('../../images/icons/twitter.png')} className='col img-fluid' alt="" /></a>
+                                            <a href="https://www.instagram.com/shafin4104/"><img src={require('../../images/icons/instagram.png')} className='col img-fluid' alt="" /></a>
+                                            <a href=" https://discord.gg/xKU3Pb2fS8"><img src={require('../../images/icons/discord.png')} className='col img-fluid' alt="" /></a>
                                         </div>
                                     </div>
                                 </div>
