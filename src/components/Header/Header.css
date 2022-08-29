@@ -28,8 +28,8 @@ input[type = "checkbox"] {
   
   .bar span {
     position: absolute;
-    width: 45px;
-    height: 7px;
+    width: 31px;
+    height: 5px;
     background: #f1faee;
     border-radius: 100px;
     display: inline-block;
@@ -43,11 +43,11 @@ input[type = "checkbox"] {
   }
   
   .bar span.middle {
-    top: 17px;
+    top: 11px;
   }
   
   .bar span.bottom {
-    bottom: 0;
+    top: 22px;
   }
   
   input[type]:checked ~ span.top {
@@ -57,7 +57,7 @@ input[type = "checkbox"] {
     -webkit-transform-origin: top left;
         -ms-transform-origin: top left;
             transform-origin: top left;
-    width: 48px;
+    width: 31px;
     left: 5px;
   }
   
@@ -68,7 +68,7 @@ input[type = "checkbox"] {
     -webkit-transform-origin: top left;
         -ms-transform-origin: top left;
             transform-origin: top left;
-    width: 48px;
+    width: 31px;
     bottom: -1px;
     -webkit-box-shadow: 0 0 10px #495057;
             box-shadow: 0 0 10px #495057;

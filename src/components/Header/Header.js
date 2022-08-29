@@ -16,7 +16,7 @@ const Header = () => {
             <div className='container mx-auto header-1'>
                 <div className='row justify-content-center align-items-center py-2'>
 
-                    <div className='col-12 col-lg-3 d-flex justify-content-center' onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
+                    <div className='col-12 col-lg-3 d-flex justify-content-center align-items-center' onClick={() => navigate('/')} style={{ cursor: 'pointer' }}>
                         <img src={require('../../images/icons/logo.png')} width='40' className='img-fluid' alt="" />
                         <h2 className='logo mb-0 text-light'>Bit n Byte</h2>
                     </div>
