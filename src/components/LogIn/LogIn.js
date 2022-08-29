@@ -87,13 +87,13 @@ const LogIn = () => {
         <div>
             <div className="container">
                 <div className="py-lg-5"></div>
-                <div className="row py-5 justify-content-center">
-                    <div className="col-12 col-md-6 text-center ">
-                        <div className=' w-75  rounded-circle'>
-                            <img src="https://img.freepik.com/free-vector/fingerprint-concept-illustration_114360-3898.jpg?w=826&t=st=1660795367~exp=1660795967~hmac=0477392a5e3f5325faf422f91ef6be96c8911946357e3795d3f9cb6cdbddff51" className='img-fluid ' alt="" />
+                <div className="row py-5 justify-content-center align-items-center">
+                    <div className="col-12 col-lg-6 text-center ">
+                        <div className='text-center'>
+                            <img src="https://img.freepik.com/free-vector/fingerprint-concept-illustration_114360-3898.jpg?w=826&t=st=1660795367~exp=1660795967~hmac=0477392a5e3f5325faf422f91ef6be96c8911946357e3795d3f9cb6cdbddff51" className='img-fluid w-75 w-lg-100' alt="" />
                         </div>
                     </div>
-                    <div className='col-12 col-md-6'>
+                    <div className='col-12 col-lg-6'>
                         <h1 className='text-center py-5'>User Login</h1>
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="form-floating mb-3">
@@ -113,11 +113,11 @@ const LogIn = () => {
                             {/* error message  */}
                             {error ? <h6 className='text-center text-danger py-3'>{error}</h6> : null}
                             <div className="text-center">
-                                <button className='btn btn-success px-5 py-2'>Log in</button>
+                                <button className='btn green-cyan-btn px-5 py-2'>Log in</button>
                             </div>
                         </form>
                         <div className='py-5 text-center'>
-                            <button onClick={handleGoogleSignin} className='btn btn-light px-5 py-2'><i className="fa-brands fa-google pe-3"></i>Sign in with Google</button>
+                            <button onClick={handleGoogleSignin} className='btn btn-light border px-5 py-2'><i className="fa-brands fa-google pe-3"></i>Sign in with Google</button>
                             <Link to='/signup'><h6 className='py-5'>New User? Signup Now!</h6></Link>
                         </div>
                     </div>
