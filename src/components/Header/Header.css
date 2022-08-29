@@ -11,3 +11,73 @@
 .active-nav-item:hover{
     color: #177165;
 }
+
+/* navbar toggle button style start  */
+input[type = "checkbox"] {
+    -webkit-appearance: none;
+    display: none;
+    visibility: hidden;
+  }
+  
+  .bar {
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+  }
+  
+  .bar span {
+    position: absolute;
+    width: 45px;
+    height: 7px;
+    background: #f1faee;
+    border-radius: 100px;
+    display: inline-block;
+    -webkit-transition: 0.3s ease;
+    transition: 0.3s ease;
+    left: 0;
+  }
+  
+  .bar span.top {
+    top: 0;
+  }
+  
+  .bar span.middle {
+    top: 17px;
+  }
+  
+  .bar span.bottom {
+    bottom: 0;
+  }
+  
+  input[type]:checked ~ span.top {
+    -webkit-transform: rotate(45deg);
+        -ms-transform: rotate(45deg);
+            transform: rotate(45deg);
+    -webkit-transform-origin: top left;
+        -ms-transform-origin: top left;
+            transform-origin: top left;
+    width: 48px;
+    left: 5px;
+  }
+  
+  input[type]:checked ~ span.bottom {
+    -webkit-transform: rotate(-45deg);
+        -ms-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+    -webkit-transform-origin: top left;
+        -ms-transform-origin: top left;
+            transform-origin: top left;
+    width: 48px;
+    bottom: -1px;
+    -webkit-box-shadow: 0 0 10px #495057;
+            box-shadow: 0 0 10px #495057;
+  }
+  
+  input[type]:checked ~ span.middle {
+    -webkit-transform: translateX(-20px);
+        -ms-transform: translateX(-20px);
+            transform: translateX(-20px);
+    opacity: 0;
+  }
+/* navbar toggle button style end  */
