@@ -13,7 +13,7 @@
 }
 
 /* navbar toggle button style start  */
-input[type = "checkbox"] {
+.nav-toggle-checkbox  {
     -webkit-appearance: none;
     display: none;
     visibility: hidden;

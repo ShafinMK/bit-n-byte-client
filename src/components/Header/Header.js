@@ -30,7 +30,7 @@ const Header = () => {
                         {/* <span className="navbar-toggler-icon d-block d-lg-none"><i class="fa-solid fa-bars"></i></span> */}
                         <span className='navbar-toggler-icon d-block d-lg-none'>
                             <label for="check" class="bar">
-                                <input id="check" type="checkbox" />
+                                <input className='nav-toggle-checkbox' id="check" type="checkbox" />
 
                                 <span class="top"></span>
                                 <span class="middle"></span>
