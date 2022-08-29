@@ -1,7 +1,9 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Footer.css';
 
 const Footer = () => {
+    let navigate = useNavigate();
     return (
         <div className='footer-style overflow-hidden'>
             <div className='row '>
@@ -41,16 +43,16 @@ const Footer = () => {
                         <div className="col-12 col-md-5 col-lg-3 py-5 d-flex">
                             <div>
                                 <h3 className='green-cyan'>Pages</h3>
-                                <span><i className="fa-solid fa-house pe-2 green-cyan"></i>Home Page</span>
+                                <span onClick={()=> navigate('/home')} style={{cursor:'pointer'}}><i className="fa-solid fa-house pe-2 green-cyan"></i>Home Page</span>
                                 <br />
                                 <br />
-                                <span><i className="fa-solid fa-magnifying-glass pe-2 green-cyan"></i>About Us</span>
+                                <span onClick={()=> navigate('/about')} style={{cursor:'pointer'}}><i className="fa-solid fa-magnifying-glass pe-2 green-cyan"></i>About Us</span>
                                 <br />
                                 <br />
-                                <span><i className="fa-solid fa-newspaper pe-2 green-cyan"></i>News & Blogs</span>
+                                <span onClick={()=> navigate('/blogs')} style={{cursor:'pointer'}}><i className="fa-solid fa-newspaper pe-2 green-cyan"></i>News & Blogs</span>
                                 <br />
                                 <br />
-                                <span><i className="fa-solid fa-bars-progress pe-2 green-cyan"></i>Manage Inventory</span>
+                                <span onClick={()=> navigate('/manageinventory')} style={{cursor:'pointer'}}><i className="fa-solid fa-bars-progress pe-2 green-cyan"></i>Manage Inventory</span>
                             </div>
                         </div>
                         <div className="col-12 col-md-5 col-lg-3 py-5">

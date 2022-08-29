@@ -6,12 +6,17 @@ import './Home.css'
 import SampleItems from './SampleItems/SampleItems';
 import Solution from './Solution';
 import { useNavigate } from 'react-router-dom';
+import ScrollToTop from "react-scroll-to-top";
 
 
 const Home = () => {
     const navigate = useNavigate();
     return (
+        
         <div className='overflow-hidden'>
+            <ScrollToTop smooth color='#1e776b '/>
+            
+            
             <div className="row">
                 <div>
 
