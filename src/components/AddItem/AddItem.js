@@ -69,7 +69,7 @@ const AddItem = () => {
 
     return (
         <div className='common-bg'>
-            <div className='container'>
+            <div className='px-3 px-lg-5 mx-lg-5'>
                 {/* <h1 className='text-center py-5'>Add new Item</h1> */}
                 <div className='d-flex justify-content-center py-3'>
                     <span className='fs-1 fw-bold custom-radius-header p-4'>Add new Item</span>

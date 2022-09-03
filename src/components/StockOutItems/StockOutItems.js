@@ -62,7 +62,7 @@ const StockOutItems = () => {
                         <img src={require('../../images/notstockout.webp')} className='img-fluid w-50' alt="" />
                     </div>
                 </div> :
-                    <div className="table-responsive">
+                    <div className="table-responsive px-3 px-lg-5 mx-lg-5">
                         <table className='table'>
                             <thead>
                                 <tr>
@@ -79,7 +79,7 @@ const StockOutItems = () => {
                             <tbody>
                                 {
                                     items.map((item, index) => (
-                                        <tr>
+                                        <tr key={item._id}>
                                             <td className='align-middle'>{index+1}</td>
                                             <td className='align-middle'><img src={item.itemImage} className='img-fluid' width='90' alt="" /></td>
                                             <td className='align-middle' onClick={() => handleUpdate(item._id)} style={{ cursor: 'pointer' }}>{item.itemName}</td>
@@ -87,7 +87,7 @@ const StockOutItems = () => {
                                             <td className='align-middle'>{item.itemInStock}</td>
                                             <td className='align-middle'>{item.vendorName}</td>
                                             <td className='align-middle' >
-                                                <i onClick={() => { handleDelete(item._id) }} className="fa-solid fa-trash-can pe-3" style={{ cursor: 'pointer' }}></i>
+                                                <i onClick={() => { handleDelete(item._id) }} className="fa-solid fa-trash-can pe-3 text-danger " style={{ cursor: 'pointer' }}></i>
 
                                             </td>
                                         </tr>

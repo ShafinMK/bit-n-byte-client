@@ -69,7 +69,7 @@ const ManageInventory = () => {
                         </div>
                     </div>
                 </div>
-                <div className='table-responsive'>
+                <div className='table-responsive px-3 px-lg-5 mx-lg-5'>
                     <table className='table table-striped table-bordered py-5 mt-5'>
                         <thead>
                             <tr className='green-cyan'>

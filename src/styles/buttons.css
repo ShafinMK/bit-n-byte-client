@@ -2,6 +2,7 @@
     background-color: #177165;
     transition-duration: .5s;
     color: white;
+    font-weight: bold;
 }
 .green-cyan-btn:hover{
     background-color: black;
@@ -17,5 +18,23 @@
 
 .white-btn:hover{
     background-color: black;
+    color: white;
+}
+
+/* pagenation buttons  */
+.page-btn{
+    border-radius: 100%;
+    color: #177165;
+    height: 50px;
+    width: 50px;
+    background-color: white;
+    font-weight: bold;
+    border: 1px solid ;
+    border-color: #177165;
+    margin-right: 5px;
+    box-shadow: none;
+}
+.page-btn-active{
+    background-color: #177165;
     color: white;
 }

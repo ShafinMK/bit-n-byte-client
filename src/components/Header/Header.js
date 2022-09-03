@@ -94,7 +94,7 @@ const Header = () => {
                                         <NavLink to='/contact' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4 mb-lg-0'>Contacts</h6></NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        {user.email ? <h6 onClick={handleLogOut} className='btn mb-0'><i className="fa-solid fa-arrow-right-from-bracket pe-2"></i>Sign out</h6> : <NavLink to='/login' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='px-4 mb-lg-0'>Log in</h6></NavLink>}
+                                        {user.email ? <h6 onClick={handleLogOut} className='btn mb-0'><i className="fa-solid fa-arrow-right-from-bracket pe-2 "></i>Sign out</h6> : <NavLink to='/login' className={({ isActive }) => isActive ? "active-nav-item" : "text-dark"} style={{ textDecoration: 'none' }}><h6 className='btn px-4 mb-0 '>Log in</h6></NavLink>}
                                     </li>
                                 </ul>
                             </div>

@@ -54,7 +54,8 @@ const MyItems = () => {
                                 <h6 className='pb-5'>You haven't added any items yet.....</h6>
                             </div>
                         </div> :
-                            <table className='table container'>
+                            <div className='px-3 px-lg-5 mx-lg-5'>
+                                <table className='table '>
                                 <thead>
                                     <tr className='green-cyan'>
                                         <th scope='col'>Sl No.</th>
@@ -84,6 +85,7 @@ const MyItems = () => {
                                     }
                                 </tbody>
                             </table>
+                            </div>
                     }
                 </>
 

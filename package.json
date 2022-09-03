@@ -2,6 +2,7 @@
   "name": "bit-n-byte",
   "version": "0.1.0",
   "private": true,
+  "proxy": "https://powerful-falls-56396.herokuapp.com",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.3.0",
@@ -11,6 +12,7 @@
     "firebase": "^9.9.2",
     "react": "^18.2.0",
     "react-chartjs-2": "^4.3.1",
+    "react-collapsed": "^3.3.2",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
     "react-router-dom": "^6.3.0",

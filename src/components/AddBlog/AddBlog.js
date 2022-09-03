@@ -55,7 +55,7 @@ const AddBlog = () => {
             <div className='d-flex justify-content-center py-3'>
                 <span className='fs-1 fw-bold custom-radius-header p-4'>Write Blog</span>
             </div>
-            <div className="container py-5">
+            <div className="px-3 px-lg-5 mx-lg-5 py-5">
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="row">
                         <div className="col-12 col-lg-6">

@@ -19,7 +19,7 @@ const SampleItems = () => {
     }
 
     return (
-        <div className='container'>
+        <div className='px-lg-5 mx-lg-5'>
 
             <h1 className='py-5 text-center' data-aos="fade-up">Products</h1>
             <div className='row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4'>
