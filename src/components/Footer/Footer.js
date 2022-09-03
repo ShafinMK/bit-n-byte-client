@@ -14,9 +14,9 @@ const Footer = () => {
                 <img src={require('../../images/footer-g-5.avif')} className='img-fluid col-6 col-md-4 col-lg-2 p-0' alt="" />
                 <img src={require('../../images/footer-g-6.avif')} className='img-fluid col-6 col-md-4 col-lg-2 p-0' alt="" />
             </div>
-            <div className="p-5 mx-lg-5 bg-light">
+            <div className=" bg-light">
 
-                <div className="">
+                <div className="p-5 mx-lg-5">
                     <div className="row justify-content-around">
                         <div className="col-12 col-md-5 col-lg-3 py-5">
 

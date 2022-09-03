@@ -38,7 +38,7 @@ const About = () => {
                     <div className='col-11 col-md-5 col-lg-3'>
                         <img src={require('../../images/pc-repair.png')} className='img-fluid' alt="" />
                         <div className='pt-lg-5'></div>
-                        <h3 className='black ' onClick={() => navigate('/')}>Hardware care</h3>
+                        <h3 className='black pt-2' onClick={() => navigate('/')}>Hardware care</h3>
                         <p className='py-3'>Computers, just like any other electronic device, need regular maintenance. The same way that you attend your annual medical check-up, your computer also needs scheduled maintenance of its computer hardware to ensure that you are doing everything you can to extend its lifespan. This is what many people call preventative maintenance.</p>
                         <div className="img-container">
                             <img src={require('../../images/computer5.jpg')} className='img-fluid img-c-b-r-1' style={{ borderRadius: '15px 15px 15px 90px' }} alt="" />
@@ -52,7 +52,7 @@ const About = () => {
                         <div className='pt-lg-5'></div>
                         <div className='pt-lg-5'></div>
                         <div className='pt-lg-5'></div>
-                        <h3 className='black' onClick={() => navigate('/')}>Smart Planning</h3>
+                        <h3 className='black pt-2' onClick={() => navigate('/')}>Smart Planning</h3>
                         <p className='py-3'>Picking the right components for the build you need can be a daunting process at first, but once you dive in, you’ll see that it’s not only surprisingly simple, it’s a heck of a lot of fun. This guide is by no means meant to be exhaustive, it’s more a primer on what you’ll need to know to gather up the right parts, and start putting your dream build together.</p>
                         <div className="img-container">
                             <img src={require('../../images/computer6.jpg')} className='img-fluid' style={{ borderRadius: '90px 15px 15px 15px' }} alt="" />

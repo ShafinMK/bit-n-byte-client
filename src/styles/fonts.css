@@ -22,3 +22,8 @@ h1, h3, h4, .fs-1{
 .logo{
     font-family: 'Lily Script One', cursive;
 }
+
+a{
+    text-decoration: none;
+    color: black;
+}

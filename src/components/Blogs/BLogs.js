@@ -25,7 +25,7 @@ const BLogs = () => {
         //     })
         axios.get('https://powerful-falls-56396.herokuapp.com/randomblogs')
         .then(res => {
-            console.log(res);
+            // console.log(res);
             setrecentBlogs(res.data);
         })
     }, []);
@@ -45,7 +45,7 @@ const BLogs = () => {
             .then(res => res.json())
             .then(data => {
                 // setPageCount(data.count);
-                console.log(pageCount);
+                // console.log(pageCount);
                 const count = data.count;
                 const pages = Math.ceil(count / size);
                 setPageCount(pages);
@@ -77,7 +77,7 @@ const BLogs = () => {
                                 </div>
                                 <div className='d-flex justify-content-center'>
                                     {
-                                        [...Array(pageCount).keys()].map(number => <button onClick={() => setPage(number)} className={page === number ? 'page-btn page-btn-active' : 'page-btn'}>{number}</button>)
+                                        [...Array(pageCount).keys()].map(number => <button onClick={() => setPage(number)} className={page === number ? 'page-btn page-btn-active' : 'page-btn'}>{number+1}</button>)
                                     }
                                 </div>
                             </div>
